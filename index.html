@@ -1,0 +1,1199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="VN Resolutions builds AI receptionists and Facebook advertising systems that capture leads, book appointments, and grow revenue — automatically." />
+  <title>VN Resolutions | AI Receptionists & Facebook Ads</title>
+
+  <!-- Social preview -->
+  <meta property="og:title" content="VN Resolutions | AI Receptionists & Facebook Ads" />
+  <meta property="og:description" content="Stop missing calls. Stop wasting ad spend. Start converting attention into booked appointments — automatically." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      --bg: #070A12;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.08);
+      --stroke: rgba(255,255,255,.12);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.68);
+      --muted2: rgba(255,255,255,.58);
+
+      --brand: #7C5CFF;
+      --brand2: #2CE6C7;
+      --warn: #FFB020;
+
+      --shadow: 0 20px 60px rgba(0,0,0,.55);
+      --radius: 18px;
+      --radius2: 26px;
+
+      --max: 1140px;
+    }
+
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 700px at 20% 10%, rgba(124,92,255,.22), transparent 60%),
+                  radial-gradient(900px 600px at 80% 20%, rgba(44,230,199,.16), transparent 60%),
+                  radial-gradient(1000px 700px at 50% 100%, rgba(124,92,255,.14), transparent 55%),
+                  linear-gradient(180deg, #050711 0%, #070A12 60%, #050711 100%);
+      overflow-x:hidden;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    .container{ width: min(100% - 40px, var(--max)); margin: 0 auto; }
+
+    /* Top nav */
+    .nav{
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(14px);
+      background: rgba(7,10,18,.55);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding: 14px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight: 700;
+      letter-spacing:.3px;
+      white-space:nowrap;
+    }
+    .logo{
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background:
+        radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,.45), transparent 60%),
+        linear-gradient(135deg, rgba(124,92,255,.95), rgba(44,230,199,.85));
+      box-shadow: 0 10px 30px rgba(124,92,255,.25);
+      border: 1px solid rgba(255,255,255,.18);
+    }
+    .brand small{
+      display:block;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: .2px;
+      margin-top: 2px;
+      font-size: 12px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap: 18px;
+      align-items:center;
+    }
+    .nav-links a{
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      transition: .2s ease;
+    }
+    .nav-links a:hover{
+      color: var(--text);
+      background: rgba(255,255,255,.06);
+    }
+
+    .nav-actions{ display:flex; gap:10px; align-items:center; }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+      cursor:pointer;
+      transition: .2s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); }
+    .btn:active{ transform: translateY(0px); }
+    .btn.primary{
+      border: 1px solid rgba(255,255,255,.16);
+      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(44,230,199,.85));
+      box-shadow: 0 20px 50px rgba(124,92,255,.18);
+      color: #071018;
+    }
+    .btn.primary:hover{ box-shadow: 0 26px 70px rgba(124,92,255,.22); }
+
+    .hamburger{
+      display:none;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      cursor:pointer;
+      align-items:center;
+      justify-content:center;
+    }
+    .hamburger span{
+      width: 18px;
+      height: 2px;
+      background: rgba(255,255,255,.78);
+      position: relative;
+      display:block;
+      border-radius: 999px;
+    }
+    .hamburger span::before,
+    .hamburger span::after{
+      content:"";
+      position:absolute;
+      left:0;
+      width: 18px;
+      height: 2px;
+      background: rgba(255,255,255,.78);
+      border-radius: 999px;
+      transform-origin:center;
+    }
+    .hamburger span::before{ top:-6px; }
+    .hamburger span::after{ top:6px; }
+
+    /* Mobile drawer */
+    .drawer{
+      display:none;
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 10px 0 16px;
+    }
+    .drawer a{
+      display:block;
+      padding: 12px 12px;
+      border-radius: 12px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .drawer a:hover{
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+    }
+
+    /* Hero */
+    .hero{
+      padding: 54px 0 26px;
+      position: relative;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 26px;
+      align-items: start;
+    }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing:.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .dot{
+      width: 8px; height: 8px; border-radius: 999px;
+      background: linear-gradient(135deg, rgba(124,92,255,1), rgba(44,230,199,1));
+      box-shadow: 0 0 18px rgba(44,230,199,.35);
+    }
+    h1{
+      margin: 0 0 14px;
+      font-size: clamp(34px, 4.1vw, 56px);
+      line-height: 1.02;
+      letter-spacing: -1px;
+    }
+    .lead{
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 58ch;
+    }
+
+    .hero-cta{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .trust-row{
+      display:flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items:center;
+      color: var(--muted2);
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .trust-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+    }
+
+    /* Right hero card */
+    .hero-card{
+      border-radius: var(--radius2);
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+      box-shadow: var(--shadow);
+      padding: 18px;
+      position: relative;
+      overflow:hidden;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(500px 200px at 30% 0%, rgba(124,92,255,.22), transparent 55%),
+                  radial-gradient(420px 220px at 80% 20%, rgba(44,230,199,.18), transparent 55%);
+      pointer-events:none;
+    }
+    .hero-card > *{ position: relative; z-index: 1; }
+
+    .mini-title{
+      font-weight: 900;
+      letter-spacing: -.2px;
+      margin: 0 0 10px;
+      font-size: 14px;
+      color: rgba(255,255,255,.88);
+    }
+    .mini-sub{
+      margin:0 0 16px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .stat-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .stat{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      padding: 12px;
+    }
+    .stat b{
+      display:block;
+      font-size: 18px;
+      letter-spacing:-.2px;
+      margin-bottom: 2px;
+    }
+    .stat span{
+      color: var(--muted2);
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 1.2;
+    }
+
+    .checklist{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display:grid;
+      gap: 10px;
+    }
+    .checklist li{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.16);
+      padding: 12px;
+      color: rgba(255,255,255,.86);
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .tick{
+      flex: 0 0 auto;
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, rgba(124,92,255,1), rgba(44,230,199,1));
+      box-shadow: 0 10px 25px rgba(44,230,199,.12);
+      margin-top: 1px;
+    }
+
+    /* Sections */
+    section{ padding: 38px 0; }
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size: 22px;
+      letter-spacing: -.4px;
+    }
+    .section-head p{
+      margin:0;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 1.5;
+      max-width: 70ch;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .card{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      padding: 16px;
+      box-shadow: 0 14px 45px rgba(0,0,0,.25);
+      position: relative;
+      overflow:hidden;
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      background: radial-gradient(350px 140px at 15% 0%, rgba(124,92,255,.14), transparent 60%),
+                  radial-gradient(350px 140px at 85% 20%, rgba(44,230,199,.10), transparent 60%);
+      opacity: .9;
+      pointer-events:none;
+    }
+    .card > *{ position: relative; z-index: 1; }
+
+    .icon{
+      width: 42px; height: 42px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom: 12px;
+    }
+    .icon svg{ width: 22px; height: 22px; opacity: .92; }
+
+    .card h3{
+      margin: 0 0 8px;
+      font-size: 16px;
+      letter-spacing: -.2px;
+    }
+    .card p{
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-weight: 650;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .bullets{
+      margin: 0;
+      padding-left: 16px;
+      color: rgba(255,255,255,.82);
+      font-weight: 700;
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+    .bullets li{ margin: 6px 0; color: rgba(255,255,255,.82); }
+
+    /* Steps */
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .step{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      padding: 16px;
+      position:relative;
+      overflow:hidden;
+    }
+    .step::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      background: radial-gradient(300px 120px at 0% 0%, rgba(124,92,255,.12), transparent 65%);
+      pointer-events:none;
+    }
+    .step > *{ position:relative; z-index:1; }
+    .step-num{
+      width: 34px; height: 34px;
+      border-radius: 14px;
+      display:flex; align-items:center; justify-content:center;
+      font-weight: 900;
+      color: #061018;
+      background: linear-gradient(135deg, rgba(124,92,255,1), rgba(44,230,199,1));
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow: 0 18px 40px rgba(124,92,255,.12);
+      margin-bottom: 10px;
+    }
+    .step h4{
+      margin: 0 0 6px;
+      font-size: 14px;
+      letter-spacing: -.2px;
+    }
+    .step p{
+      margin: 0;
+      color: var(--muted);
+      font-weight: 650;
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+
+    /* CTA band */
+    .cta-band{
+      border-radius: var(--radius2);
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(135deg, rgba(124,92,255,.22), rgba(44,230,199,.16));
+      box-shadow: var(--shadow);
+      padding: 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      overflow:hidden;
+      position:relative;
+    }
+    .cta-band::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(700px 260px at 20% 0%, rgba(255,255,255,.12), transparent 60%);
+      pointer-events:none;
+    }
+    .cta-band > *{ position:relative; z-index:1; }
+    .cta-band h3{
+      margin:0 0 6px;
+      font-size: 18px;
+      letter-spacing: -.3px;
+    }
+    .cta-band p{
+      margin:0;
+      color: rgba(255,255,255,.80);
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    /* FAQ */
+    .faq{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    details{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      padding: 14px 14px;
+      overflow:hidden;
+    }
+    summary{
+      cursor:pointer;
+      font-weight: 900;
+      font-size: 13.5px;
+      color: rgba(255,255,255,.88);
+      list-style:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details p{
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-weight: 650;
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+
+    /* Contact */
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    .contact-card{
+      border-radius: var(--radius2);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      padding: 18px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.35);
+    }
+    .field{
+      display:grid;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    label{
+      font-size: 12px;
+      color: rgba(255,255,255,.82);
+      font-weight: 900;
+      letter-spacing: .2px;
+    }
+    input, textarea, select{
+      width:100%;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.20);
+      color: rgba(255,255,255,.90);
+      padding: 12px 12px;
+      font-weight: 700;
+      outline:none;
+    }
+    textarea{ min-height: 110px; resize: vertical; }
+    input:focus, textarea:focus, select:focus{
+      border-color: rgba(124,92,255,.55);
+      box-shadow: 0 0 0 4px rgba(124,92,255,.18);
+    }
+    .contact-note{
+      color: var(--muted);
+      font-weight: 650;
+      font-size: 12.5px;
+      line-height: 1.6;
+      margin: 10px 0 0;
+    }
+    .contact-info{
+      display:grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .info-row{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.16);
+      padding: 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .info-row b{
+      font-size: 13px;
+      letter-spacing: -.1px;
+    }
+    .info-row a{
+      color: rgba(255,255,255,.88);
+      font-weight: 900;
+      font-size: 13px;
+      text-decoration: underline;
+      text-decoration-color: rgba(255,255,255,.25);
+      text-underline-offset: 3px;
+    }
+
+    /* Footer */
+    footer{
+      padding: 26px 0 40px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      margin-top: 18px;
+      color: var(--muted2);
+      font-weight: 700;
+      font-size: 12.5px;
+    }
+    .foot{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .foot .mini-links{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .mini-links a{
+      color: var(--muted2);
+      text-decoration: underline;
+      text-decoration-color: rgba(255,255,255,.18);
+      text-underline-offset: 3px;
+    }
+    .mini-links a:hover{ color: rgba(255,255,255,.88); }
+
+    /* Floating chat widget (visual only) */
+    .chat{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: min(360px, calc(100% - 36px));
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(7,10,18,.72);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 22px 70px rgba(0,0,0,.55);
+      overflow:hidden;
+      z-index: 60;
+      transform: translateY(0);
+    }
+    .chat.hidden{ display:none; }
+    .chat-head{
+      padding: 14px 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+    }
+    .chat-head b{ font-size: 13px; letter-spacing: -.1px; }
+    .chat-head span{ color: var(--muted); font-weight: 700; font-size: 12px; }
+    .chat-body{ padding: 12px 14px; color: var(--muted); font-weight: 650; font-size: 12.5px; line-height: 1.55; }
+    .chat-actions{ padding: 12px 14px; display:flex; gap: 10px; }
+    .chat-actions input{
+      flex: 1;
+      border-radius: 14px;
+      padding: 11px 12px;
+      font-size: 13px;
+    }
+    .chat-actions button{ padding: 11px 12px; border-radius: 14px; }
+    .chat-toggle{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(44,230,199,.85));
+      box-shadow: 0 20px 60px rgba(124,92,255,.20);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      z-index: 61;
+    }
+    .chat-toggle svg{ width: 24px; height: 24px; color: #061018; }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .cards{ grid-template-columns: 1fr; }
+      .steps{ grid-template-columns: 1fr 1fr; }
+      .contact-grid{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 760px){
+      .nav-links, .nav-actions .btn.secondary { display:none; }
+      .hamburger{ display:flex; }
+      .drawer.show{ display:block; }
+      .steps{ grid-template-columns: 1fr; }
+      .cta-band{ flex-direction: column; align-items:flex-start; }
+    }
+    @media (max-width: 460px){
+      .chat{ width: calc(100% - 24px); right: 12px; bottom: 12px; }
+      .chat-toggle{ right: 12px; bottom: 12px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a class="brand" href="#top" aria-label="VN Resolutions Home">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            VN Resolutions
+            <small>AI Receptionists • Facebook Ads • Automated Growth</small>
+          </div>
+        </a>
+
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#services">Services</a>
+          <a href="#how">How it works</a>
+          <a href="#why">Why us</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="btn secondary" href="mailto:vnresolutions@gmail.com?subject=VN%20Resolutions%20-%20Get%20Started">Email Us</a>
+          <a class="btn primary" href="#contact">Get Started</a>
+          <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="drawer" id="drawer" aria-label="Mobile navigation">
+        <a href="#services">Services</a>
+        <a href="#how">How it works</a>
+        <a href="#why">Why us</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+        <a href="mailto:vnresolutions@gmail.com?subject=VN%20Resolutions%20-%20Get%20Started">Email Us</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="top" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker"><span class="dot" aria-hidden="true"></span> AI Receptionists + Ads that book appointments</div>
+          <h1>Stop missing calls. Start booking appointments automatically.</h1>
+          <p class="lead">
+            VN Resolutions builds AI receptionists and Facebook advertising systems that capture leads, qualify them,
+            and book appointments — 24/7. Built for real businesses that want results, not complexity.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn primary" href="#contact">Get Started</a>
+            <a class="btn" href="#services">See Services</a>
+            <a class="btn" href="mailto:vnresolutions@gmail.com?subject=VN%20Resolutions%20-%20Questions">Ask a Question</a>
+          </div>
+
+          <div class="trust-row" aria-label="Key benefits">
+            <span class="trust-pill">24/7 response</span>
+            <span class="trust-pill">Lead qualification</span>
+            <span class="trust-pill">Appointment booking</span>
+            <span class="trust-pill">Ad optimization</span>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Quick overview">
+          <p class="mini-title">What you get</p>
+          <p class="mini-sub">
+            A combined system: ads generate demand, automation handles response and follow-up, and your calendar fills up.
+          </p>
+
+          <div class="stat-grid" aria-label="System pillars">
+            <div class="stat">
+              <b>AI Receptionist</b>
+              <span>Calls + messages answered instantly</span>
+            </div>
+            <div class="stat">
+              <b>Facebook Ads</b>
+              <span>Consistent inbound leads</span>
+            </div>
+            <div class="stat">
+              <b>Lead Routing</b>
+              <span>Send leads to the right place</span>
+            </div>
+            <div class="stat">
+              <b>Follow-Up</b>
+              <span>Automatic reminders & nurture</span>
+            </div>
+          </div>
+
+          <ul class="checklist" aria-label="Outcome checklist">
+            <li><span class="tick" aria-hidden="true"></span>Fewer missed leads and faster response time</li>
+            <li><span class="tick" aria-hidden="true"></span>Higher conversion into booked appointments</li>
+            <li><span class="tick" aria-hidden="true"></span>Less manual admin and less wasted ad spend</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>What We Do</h2>
+          <p>VN Resolutions helps businesses stop missing calls, stop wasting ad spend, and start converting attention into booked appointments.</p>
+        </div>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M20 15.5v2a2.5 2.5 0 0 1-2.8 2.5 18.5 18.5 0 0 1-8.1-2.9 18.2 18.2 0 0 1-5.6-5.6A18.5 18.5 0 0 1 .6 3.4 2.5 2.5 0 0 1 3.1.6h2A2.5 2.5 0 0 1 7.6 2.8c.2 1 .5 2 .9 2.9a2.5 2.5 0 0 1-.6 2.7L7 9.3a15 15 0 0 0 7.7 7.7l.9-.9a2.5 2.5 0 0 1 2.7-.6c.9.4 1.9.7 2.9.9A2.5 2.5 0 0 1 20 15.5Z" stroke="rgba(255,255,255,.85)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>AI Receptionists</h3>
+          <p>24/7 AI-powered receptionists that answer calls, respond to messages, qualify leads, and book appointments automatically.</p>
+          <ul class="bullets">
+            <li>Answer inbound calls & handle FAQs</li>
+            <li>Text/SMS messaging and lead capture</li>
+            <li>Qualification + appointment scheduling</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3 12h6l3 8 3-16 3 8h3" stroke="rgba(255,255,255,.85)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3 19.5h18" stroke="rgba(255,255,255,.55)" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Facebook Ads Management</h3>
+          <p>High-converting Facebook ad campaigns designed to generate consistent leads, not just clicks.</p>
+          <ul class="bullets">
+            <li>Offer + funnel alignment</li>
+            <li>Creative iteration and testing</li>
+            <li>Optimization for cost per lead and bookings</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M7 17a4 4 0 0 1 0-8h2" stroke="rgba(255,255,255,.85)" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M17 7a4 4 0 0 1 0 8h-2" stroke="rgba(255,255,255,.85)" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M9 12h6" stroke="rgba(255,255,255,.85)" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Lead Routing & Follow-Up</h3>
+          <p>Automated systems that instantly respond to leads and route them to the right place — so nothing slips through.</p>
+          <ul class="bullets">
+            <li>Instant responses to new inquiries</li>
+            <li>Routing to calendar, CRM, or team</li>
+            <li>Reminder + reactivation sequences</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>How It Works</h2>
+          <p>A simple, proven setup designed for real businesses.</p>
+        </div>
+      </div>
+
+      <div class="steps" aria-label="Setup steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h4>Setup</h4>
+          <p>We connect your AI receptionist and ad system to your business so everything works end-to-end.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h4>Launch</h4>
+          <p>Facebook ads start generating inbound leads — consistently, with clear tracking and goals.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h4>Automate</h4>
+          <p>The AI receptionist responds instantly, qualifies leads, and books appointments automatically.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h4>Scale</h4>
+          <p>We optimize ads and automation to increase volume and ROI while keeping lead quality high.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Why VN Resolutions</h2>
+          <p>Built for businesses that want results, not complexity.</p>
+        </div>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 22s8-4 8-10V6l-8-4-8 4v6c0 6 8 10 8 10Z" stroke="rgba(255,255,255,.85)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="m9 12 2 2 4-4" stroke="rgba(255,255,255,.85)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>No Missed Leads</h3>
+          <p>Your AI receptionist works 24/7, so calls and messages get answered even when you’re busy.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 7h16M4 12h10M4 17h16" stroke="rgba(255,255,255,.85)" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Simple Setup</h3>
+          <p>No technical knowledge required. We build the system and connect it to your workflow.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3 20h18" stroke="rgba(255,255,255,.55)" stroke-width="1.2" stroke-linecap="round"/>
+              <path d="M7 16V8m5 8V4m5 12v-6" stroke="rgba(255,255,255,.85)" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Results Focused</h3>
+          <p>Everything is built around bookings and revenue — not vanity metrics.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section>
+    <div class="container">
+      <div class="cta-band">
+        <div>
+          <h3>Ready to automate your lead flow?</h3>
+          <p>Let’s build a system that captures leads, responds instantly, and books appointments for you.</p>
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn primary" href="#contact">Get Started</a>
+          <a class="btn" href="mailto:vnresolutions@gmail.com?subject=VN%20Resolutions%20-%20Get%20Started">Email: vnresolutions@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>FAQ</h2>
+          <p>Common questions businesses ask before implementing an AI receptionist + ads system.</p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>What can the AI receptionist handle?</summary>
+          <p>It can answer calls, respond to messages, ask qualifying questions, capture lead details, and help book appointments based on your rules and availability.</p>
+        </details>
+        <details>
+          <summary>Do I need any technical experience?</summary>
+          <p>No. VN Resolutions sets up the system and connects it to your business workflow. You mainly provide your business info, services, and preferences.</p>
+        </details>
+        <details>
+          <summary>Will this work for my industry?</summary>
+          <p>If your business relies on inbound calls/leads and booking appointments, the model typically fits well. The offer and qualification flow can be tailored per niche.</p>
+        </details>
+        <details>
+          <summary>How do Facebook ads connect to the AI receptionist?</summary>
+          <p>Ads generate inquiries, then the automation responds instantly and routes the lead to booking and follow-up. This prevents leads from going cold.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Contact</h2>
+          <p>Ready to automate your lead flow? Send details and VN Resolutions will follow up.</p>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3 style="margin:0 0 10px; letter-spacing:-.2px;">Send a message</h3>
+          <p style="margin:0 0 14px; color: var(--muted); font-weight:650; font-size:13px; line-height:1.6;">
+            This form opens your email client (no backend required). If you want a real form submission later,
+            you can add Netlify Forms in 2 minutes.
+          </p>
+
+          <form id="contactForm">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" autocomplete="name" placeholder="Your name" required />
+            </div>
+
+            <div class="field">
+              <label for="business">Business Name</label>
+              <input id="business" name="business" placeholder="Business name" />
+            </div>
+
+            <div class="field">
+              <label for="service">What do you need?</label>
+              <select id="service" name="service" required>
+                <option value="" selected disabled>Select an option</option>
+                <option>AI Receptionist</option>
+                <option>Facebook Ads Management</option>
+                <option>Lead Routing & Follow-Up</option>
+                <option>Full System (AI + Ads + Automation)</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us what you're trying to automate (calls, leads, bookings) and your main goal." required></textarea>
+            </div>
+
+            <button class="btn primary" type="submit">Send</button>
+            <p class="contact-note">
+              Prefer email? Use <a href="mailto:vnresolutions@gmail.com" style="text-decoration:underline; text-underline-offset:3px;">vnresolutions@gmail.com</a>
+            </p>
+          </form>
+        </div>
+
+        <div class="contact-card">
+          <h3 style="margin:0 0 10px; letter-spacing:-.2px;">Direct contact</h3>
+          <p style="margin:0 0 14px; color: var(--muted); font-weight:650; font-size:13px; line-height:1.6;">
+            Get in touch and we’ll map the fastest path to more booked appointments.
+          </p>
+
+          <div class="contact-info">
+            <div class="info-row">
+              <b>Email</b>
+              <a href="mailto:vnresolutions@gmail.com?subject=VN%20Resolutions%20-%20Get%20Started">vnresolutions@gmail.com</a>
+            </div>
+            <div class="info-row">
+              <b>What you can request</b>
+              <span style="color: var(--muted2); font-weight:800; font-size:12.5px;">AI Receptionist • Facebook Ads • Follow-Up Automation</span>
+            </div>
+            <div class="info-row">
+              <b>Response</b>
+              <span style="color: var(--muted2); font-weight:800; font-size:12.5px;">Fast reply • Clear next steps</span>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="#services">Review Services</a>
+            <a class="btn primary" href="mailto:vnresolutions@gmail.com?subject=VN%20Resolutions%20-%20I%20Want%20To%20Get%20Started">Email to Start</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div>© <span id="year"></span> VN Resolutions</div>
+        <div class="mini-links">
+          <a href="#services">Services</a>
+          <a href="#how">How it works</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chat widget (visual placeholder to match the current site vibe) -->
+  <div class="chat" id="chatWidget" role="dialog" aria-label="VN AI Assistant">
+    <div class="chat-head">
+      <div>
+        <b>VN AI Assistant</b><br/>
+        <span>Hi I’m the VN AI assistant. How can I help you today?</span>
+      </div>
+      <button class="btn" id="chatMinimize" type="button" style="padding:8px 10px; border-radius:12px;">Hide</button>
+    </div>
+    <div class="chat-body">
+      This is a visual placeholder. If you want a real AI chat later, you can connect a widget or embed your chatbot script here.
+    </div>
+    <div class="chat-actions">
+      <input type="text" placeholder="Type your message..." disabled />
+      <button class="btn primary" type="button" disabled>Send</button>
+    </div>
+  </div>
+
+  <div class="chat-toggle" id="chatToggle" aria-label="Open chat">
+    <svg viewBox="0 0 24 24" fill="none">
+      <path d="M21 12a8 8 0 0 1-8 8H7l-4 3v-6a8 8 0 1 1 18-5Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile menu
+    const hamburger = document.getElementById("hamburger");
+    const drawer = document.getElementById("drawer");
+    if (hamburger) {
+      hamburger.addEventListener("click", () => {
+        const open = drawer.classList.toggle("show");
+        hamburger.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
+    // Close drawer when clicking a link
+    [...drawer.querySelectorAll("a")].forEach(a => {
+      a.addEventListener("click", () => {
+        drawer.classList.remove("show");
+        hamburger.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Contact form -> mailto (no backend required)
+    const form = document.getElementById("contactForm");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const business = document.getElementById("business").value.trim();
+      const service = document.getElementById("service").value;
+      const message = document.getElementById("message").value.trim();
+
+      const subject = encodeURIComponent(`VN Resolutions - ${service} (Inquiry)`);
+      const body = encodeURIComponent(
+`Name: ${name}
+Business: ${business || "N/A"}
+Need: ${service}
+
+Message:
+${message}
+
+---
+Sent from vnresolutions.com landing page`
+      );
+
+      window.location.href = `mailto:vnresolutions@gmail.com?subject=${subject}&body=${body}`;
+    });
+
+    // Chat widget minimize/show
+    const chatWidget = document.getElementById("chatWidget");
+    const chatMinimize = document.getElementById("chatMinimize");
+    const chatToggle = document.getElementById("chatToggle");
+
+    chatMinimize.addEventListener("click", () => {
+      chatWidget.classList.add("hidden");
+      chatToggle.style.display = "flex";
+    });
+
+    chatToggle.addEventListener("click", () => {
+      chatWidget.classList.remove("hidden");
+      chatToggle.style.display = "none";
+    });
+  </script>
+</body>
+</html>
