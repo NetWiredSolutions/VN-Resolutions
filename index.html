@@ -10,19 +10,15 @@
             theme: {
                 extend: {
                     colors: {
-                        'ai-dark': '#050A1F', // Deep Navy Background
-                        'ai-surface': '#0A112E', // Slightly lighter surface
-                        'ai-cyan': '#00F0FF', // Electric Cyan accent
-                        'ai-violet': '#8A2BE2', // Vivid Violet accent
+                        'ai-dark': '#050A1F', 
+                        'ai-surface': '#0A112E', 
+                        'ai-cyan': '#00F0FF', 
+                        'ai-violet': '#8A2BE2', 
                         'ai-text-muted': '#94A3B8'
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         display: ['Playfair Display', 'serif'],
-                    },
-                    backgroundImage: {
-                        'hero-glow': 'radial-gradient(circle at 70% 30%, rgba(138, 43, 226, 0.2) 0%, rgba(5, 10, 31, 0) 70%)',
-                        'grid-pattern': 'linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)'
                     }
                 }
             }
@@ -36,293 +32,136 @@
             font-family: 'Inter', sans-serif;
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300F0FF' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
-        .font-display { font-family: 'Playfair Display', serif; }
-        
-        /* Custom Gradients & Effects */
         .tech-gradient-text { background: linear-gradient(to right, #00F0FF, #8A2BE2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .tech-gradient-bg { background: linear-gradient(to right, #00F0FF, #8A2BE2); }
-        .tech-border { border: 1px solid rgba(0, 240, 255, 0.2); }
         .glass-card {
             background: rgba(10, 17, 46, 0.7);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
         .glow-on-hover:hover {
             box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
             border-color: rgba(0, 240, 255, 0.6);
         }
-        
-        /* Subtle Animations */
         @keyframes pulse-glow {
-            0%, 100% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.05); }
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
         }
-        .animate-pulse-slow { animation: pulse-glow 4s infinite ease-in-out; }
+        .animate-pulse-slow { animation: pulse-glow 6s infinite ease-in-out; }
     </style>
 </head>
-<body>
+<body class="antialiased">
 
     <nav class="fixed w-full z-50 bg-ai-dark/90 backdrop-blur-md border-b border-white/5 py-4">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center gap-3 group cursor-pointer">
-                <div class="relative w-10 h-10 bg-gradient-to-br from-ai-cyan to-ai-violet rounded-lg flex items-center justify-center overflow-hidden group-hover:shadow-[0_0_20px_rgba(0,240,255,0.5)] transition-all duration-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white relative z-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <div class="w-10 h-10 bg-gradient-to-br from-ai-cyan to-ai-violet rounded-lg flex items-center justify-center group-hover:shadow-[0_0_20px_rgba(0,240,255,0.5)] transition-all duration-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                        <circle cx="12" cy="12" r="2" class="animate-ping absolute opacity-20"/>
                     </svg>
                 </div>
-                <span class="text-xl font-bold tracking-tight text-white">VN <span class="tech-gradient-text">RESOLUTIONS</span></span>
+                <span class="text-xl font-bold tracking-tight text-white uppercase">VN <span class="tech-gradient-text">RESOLUTIONS</span></span>
             </div>
             <div class="hidden md:flex items-center space-x-8 text-sm uppercase tracking-wider font-medium text-slate-300">
-                <a href="#services" class="hover:text-ai-cyan transition-colors relative group">
-                    Services
-                    <span class="absolute -bottom-2 left-0 w-0 h-0.5 bg-ai-cyan transition-all group-hover:w-full"></span>
-                </a>
-                <a href="#how-it-works" class="hover:text-ai-cyan transition-colors relative group">
-                    Process
-                    <span class="absolute -bottom-2 left-0 w-0 h-0.5 bg-ai-cyan transition-all group-hover:w-full"></span>
-                </a>
-                 <a href="#why-us" class="hover:text-ai-cyan transition-colors relative group">
-                    Why Us
-                    <span class="absolute -bottom-2 left-0 w-0 h-0.5 bg-ai-cyan transition-all group-hover:w-full"></span>
-                </a>
-                <a href="#contact" class="px-6 py-3 rounded-sm bg-white/5 border border-ai-cyan/30 text-ai-cyan hover:bg-ai-cyan hover:text-ai-dark transition-all duration-300 font-bold glow-on-hover">Get Started</a>
+                <a href="#services" class="hover:text-ai-cyan transition-colors">Services</a>
+                <a href="#how-it-works" class="hover:text-ai-cyan transition-colors">Process</a>
+                <a href="#contact" class="px-6 py-2 rounded-sm bg-white/5 border border-ai-cyan/30 text-ai-cyan hover:bg-ai-cyan hover:text-ai-dark transition-all duration-300 font-bold">Get Started</a>
             </div>
         </div>
     </nav>
 
-    <header class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-hero-glow">
-        <div class="absolute inset-0 bg-grid-pattern bg-[size:40px_40px] opacity-20"></div>
-        <div class="absolute top-1/4 right-0 w-96 h-96 bg-ai-violet/20 rounded-full blur-3xl -z-10 animate-pulse-slow"></div>
-        <div class="absolute bottom-0 left-1/4 w-72 h-72 bg-ai-cyan/20 rounded-full blur-3xl -z-10"></div>
-
-        <div class="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-ai-cyan/30 bg-ai-cyan/5 text-ai-cyan text-xs font-bold uppercase tracking-widest mb-6">
-                    <span class="animate-pulse w-2 h-2 bg-ai-cyan rounded-full"></span>
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-ai-cyan/10 rounded-full blur-[120px] -z-10 animate-pulse-slow"></div>
+        <div class="absolute top-1/3 left-1/4 w-72 h-72 bg-ai-violet/10 rounded-full blur-3xl -z-10"></div>
+        
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div class="max-w-4xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-ai-cyan/30 bg-ai-cyan/5 text-ai-cyan text-xs font-bold uppercase tracking-[0.2em] mb-10">
+                    <span class="flex h-2 w-2 relative">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-ai-cyan opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-ai-cyan"></span>
+                    </span>
                     The Future of Reception
                 </div>
-                <h1 class="font-display text-5xl md:text-7xl mb-6 leading-tight">
-                    We Build <span class="tech-gradient-text">AI Receptionists</span> & Automated Growth Systems.
+                
+                <h1 class="font-display text-5xl md:text-8xl mb-8 leading-[1.1] text-white">
+                    We Build <span class="tech-gradient-text">AI Receptionists</span> <br>& Automated Growth Systems.
                 </h1>
-                <p class="text-xl text-ai-text-muted mb-10 leading-relaxed max-w-lg">
-                    Capture leads, book appointments, and grow revenue—automatically. Stop missing calls and start scaling with enterprise-grade AI.
+                
+                <p class="text-lg md:text-xl text-ai-text-muted mb-12 leading-relaxed max-w-2xl mx-auto font-light tracking-wide">
+                    Capture leads, book appointments, and grow revenue—automatically. <br class="hidden md:block">
+                    Stop missing calls and start scaling with enterprise-grade AI.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-6">
-                    <a href="#contact" class="tech-gradient-bg text-ai-dark font-bold px-8 py-4 rounded-sm hover:shadow-[0_0_30px_rgba(0,240,255,0.6)] transition-all text-center">Initialize System</a>
-                    <a href="#services" class="px-8 py-4 border border-slate-700 hover:border-ai-cyan/50 hover:bg-white/5 transition-all text-center rounded-sm">Explore Solutions</a>
-                </div>
-            </div>
-            <div class="hidden lg:flex justify-center relative">
-                <div class="w-[500px] h-[500px] relative">
-                    <div class="absolute inset-0 border-2 border-ai-cyan/20 rounded-full animate-[spin_20s_linear_infinite]"></div>
-                     <div class="absolute inset-4 border-2 border-ai-violet/30 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
-                    <div class="absolute inset-12 border border-dashed border-ai-cyan/40 rounded-full animate-[spin_40s_linear_infinite]"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                         <svg xmlns="http://www.w3.org/2000/svg" class="w-32 h-32 text-ai-cyan animate-pulse-slow drop-shadow-[0_0_15px_rgba(0,240,255,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                    </div>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <a href="#contact" class="tech-gradient-bg text-ai-dark font-bold px-12 py-5 rounded-sm hover:shadow-[0_0_30px_rgba(0,240,255,0.6)] transition-all text-sm uppercase tracking-widest min-w-[240px]">
+                        Initialize System
+                    </a>
+                    <a href="#services" class="px-12 py-5 border border-slate-700 hover:border-ai-cyan/50 hover:bg-white/5 transition-all rounded-sm text-sm uppercase tracking-widest min-w-[240px]">
+                        Explore Solutions
+                    </a>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="py-16 px-6 bg-gradient-to-r from-ai-surface to-ai-dark border-y border-white/10 relative overflow-hidden">
-        <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
-        <div class="container mx-auto text-center relative z-10">
-             <h2 class="text-sm uppercase tracking-[0.3em] text-ai-cyan mb-4 font-bold">What We Do</h2>
-             <h3 class="font-display text-3xl md:text-4xl max-w-4xl mx-auto leading-snug">
-                VN Resolutions helps businesses <span class="text-white/60 line-throughDecoration-ai-violet">stop missing calls</span> and <span class="text-white/60 line-through">wasting ad spend</span>, and start converting attention into booked appointments with <span class="tech-gradient-text">precision automation.</span>
+    <section class="py-24 px-6 bg-gradient-to-b from-ai-dark to-ai-surface border-y border-white/5">
+        <div class="container mx-auto text-center">
+             <h2 class="text-xs uppercase tracking-[0.4em] text-ai-cyan mb-8 font-bold">The Mission</h2>
+             <h3 class="font-display text-3xl md:text-5xl max-w-4xl mx-auto leading-tight italic text-slate-200">
+                Helping businesses stop missing calls and start converting attention into revenue with <span class="tech-gradient-text not-italic font-bold">Precision Automation.</span>
             </h3>
         </div>
     </section>
 
-    <section id="services" class="py-24 px-6 relative">
+    <section id="services" class="py-32 px-6">
         <div class="container mx-auto">
-            <div class="text-center mb-20">
-                 <h2 class="font-display text-5xl mb-6">Core Neural Solutions</h2>
-                 <div class="w-24 h-1.5 tech-gradient-bg mx-auto rounded-full"></div>
+            <div class="text-center mb-24">
+                 <h2 class="font-display text-5xl mb-6">Neural Solutions</h2>
+                 <div class="w-20 h-1 tech-gradient-bg mx-auto rounded-full"></div>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-card p-10 rounded-2xl glow-on-hover group transition-all duration-500 relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1 tech-gradient-bg transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700"></div>
-                    <div class="mb-8 p-4 bg-ai-cyan/10 rounded-xl inline-block text-ai-cyan group-hover:text-white group-hover:bg-tech-gradient-bg transition-all">
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="glass-card p-12 rounded-xl text-center glow-on-hover transition-all duration-500">
+                    <div class="mb-8 p-4 bg-ai-cyan/10 rounded-full inline-block text-ai-cyan">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
                     </div>
                     <h4 class="text-2xl font-bold mb-4">AI Receptionists</h4>
-                    <p class="text-ai-text-muted leading-relaxed">24/7 AI-powered receptionists that answer calls with human-like realism, respond to messages across channels, qualify inbound leads, and book appointments automatically into your calendar.</p>
+                    <p class="text-ai-text-muted text-sm leading-relaxed">24/7 AI-powered receptionists that qualify inbound leads and book appointments automatically.</p>
                 </div>
-                
-                <div class="glass-card p-10 rounded-2xl glow-on-hover group transition-all duration-500 relative overflow-hidden">
-                     <div class="absolute top-0 left-0 w-full h-1 tech-gradient-bg transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 delay-100"></div>
-                     <div class="mb-8 p-4 bg-ai-violet/10 rounded-xl inline-block text-ai-violet group-hover:text-white group-hover:bg-tech-gradient-bg transition-all">
+                <div class="glass-card p-12 rounded-xl text-center glow-on-hover transition-all duration-500">
+                    <div class="mb-8 p-4 bg-ai-violet/10 rounded-full inline-block text-ai-violet">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                     </div>
-                    <h4 class="text-2xl font-bold mb-4">Facebook Ads Management</h4>
-                    <p class="text-ai-text-muted leading-relaxed">High-converting Facebook & Instagram ad campaigns designed specifically to generate consistent, high-intent leads—not just vanity clicks or empty traffic.</p>
+                    <h4 class="text-2xl font-bold mb-4">Ads Management</h4>
+                    <p class="text-ai-text-muted text-sm leading-relaxed">High-converting Facebook & Instagram campaigns designed for high-intent lead generation.</p>
                 </div>
-
-                <div class="glass-card p-10 rounded-2xl glow-on-hover group transition-all duration-500 relative overflow-hidden">
-                     <div class="absolute top-0 left-0 w-full h-1 tech-gradient-bg transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 delay-200"></div>
-                     <div class="mb-8 p-4 bg-ai-cyan/10 rounded-xl inline-block text-ai-cyan group-hover:text-white group-hover:bg-tech-gradient-bg transition-all">
+                <div class="glass-card p-12 rounded-xl text-center glow-on-hover transition-all duration-500">
+                    <div class="mb-8 p-4 bg-ai-cyan/10 rounded-full inline-block text-ai-cyan">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                     </div>
-                    <h4 class="text-2xl font-bold mb-4">Lead Routing & Follow-Up</h4>
-                    <p class="text-ai-text-muted leading-relaxed">Automated workflows that instantly respond to new leads within seconds and intelligently route them to the right department or AI agent, ensuring zero lead leakage.</p>
+                    <h4 class="text-2xl font-bold mb-4">Lead Routing</h4>
+                    <p class="text-ai-text-muted text-sm leading-relaxed">Instant automated workflows that route leads within seconds to ensure zero lead leakage.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="how-it-works" class="py-24 px-6 bg-ai-surface relative">
-        <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-ai-cyan/30 to-transparent -translate-y-1/2"></div>
-
-        <div class="container mx-auto relative z-10">
-             <div class="text-center mb-20">
-                 <h2 class="font-display text-4xl mb-4">The Deployment Protocol</h2>
-                 <p class="text-ai-text-muted">A proven setup designed for scalable results.</p>
-            </div>
-            <div class="grid md:grid-cols-4 gap-12">
-                <div class="relative text-center group">
-                    <div class="w-20 h-20 mx-auto bg-ai-dark border-2 border-ai-cyan/50 rounded-full flex items-center justify-center text-3xl font-bold text-ai-cyan mb-6 relative z-10 group-hover:bg-ai-cyan group-hover:text-ai-dark transition-all">
-                        01
-                    </div>
-                    <h5 class="text-xl font-bold mb-4">Setup & Integration</h5>
-                    <p class="text-ai-text-muted text-sm">We connect your bespoke AI receptionist and advertising system directly into your existing business infrastructure.</p>
-                </div>
-                 <div class="relative text-center group">
-                    <div class="w-20 h-20 mx-auto bg-ai-dark border-2 border-ai-violet/50 rounded-full flex items-center justify-center text-3xl font-bold text-ai-violet mb-6 relative z-10 group-hover:bg-ai-violet group-hover:text-white transition-all">
-                        02
-                    </div>
-                    <h5 class="text-xl font-bold mb-4">Launch Campaigns</h5>
-                    <p class="text-ai-text-muted text-sm">Targeted Facebook ads go live, immediately starting to generate inbound, high-intent leads.</p>
-                </div>
-                 <div class="relative text-center group">
-                    <div class="w-20 h-20 mx-auto bg-ai-dark border-2 border-ai-cyan/50 rounded-full flex items-center justify-center text-3xl font-bold text-ai-cyan mb-6 relative z-10 group-hover:bg-ai-cyan group-hover:text-ai-dark transition-all">
-                        03
-                    </div>
-                    <h5 class="text-xl font-bold mb-4">AI Automation</h5>
-                    <p class="text-ai-text-muted text-sm">Your AI receptionist handles the influx: responding instantly, qualifying prospects, and booking appointments.</p>
-                </div>
-                 <div class="relative text-center group">
-                    <div class="w-20 h-20 mx-auto bg-ai-dark border-2 border-ai-violet/50 rounded-full flex items-center justify-center text-3xl font-bold text-ai-violet mb-6 relative z-10 group-hover:bg-ai-violet group-hover:text-white transition-all">
-                        04
-                    </div>
-                    <h5 class="text-xl font-bold mb-4">Optimization & Scale</h5>
-                    <p class="text-ai-text-muted text-sm">We analyze data to optimize ad performance and automation flows to increase volume and ROI exponentially.</p>
-                </div>
+    <section id="contact" class="py-40 px-6 text-center">
+        <div class="max-w-4xl mx-auto glass-card p-20 rounded-2xl border-ai-cyan/20">
+            <h2 class="font-display text-5xl mb-8 leading-tight text-white">Scale With Next-Gen <br> Infrastructure.</h2>
+            <p class="text-ai-text-muted text-lg mb-12 max-w-xl mx-auto font-light">Available for businesses ready to automate their entire appointment flow.</p>
+            <a href="mailto:vnresolutions@gmail.com" class="tech-gradient-bg text-ai-dark font-black px-12 py-5 text-sm uppercase tracking-widest hover:shadow-[0_0_50px_rgba(0,240,255,0.4)] transition-all">
+                Initiate Consultation
+            </a>
+            <div class="mt-12">
+                <span class="text-ai-cyan/50 font-mono text-sm tracking-widest">VNRESOLUTIONS@GMAIL.COM</span>
             </div>
         </div>
     </section>
 
-    <section id="why-us" class="py-24 px-6">
-        <div class="container mx-auto grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-                 <h2 class="font-display text-4xl mb-8 leading-tight">Built for businesses that demand <span class="tech-gradient-text">results, not complexity.</span></h2>
-                 <div class="space-y-8">
-                    <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 p-2 bg-ai-cyan/10 rounded-lg text-ai-cyan">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-bold mb-2">Zero Missed Leads</h4>
-                            <p class="text-ai-text-muted">Your AI receptionist works 24/7/365. No sick days, no holidays, no missed opportunities.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 p-2 bg-ai-violet/10 rounded-lg text-ai-violet">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-bold mb-2">Turnkey Implementation</h4>
-                            <p class="text-ai-text-muted">Simple setup with no technical knowledge required on your part. We handle the heavy lifting.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 p-2 bg-ai-cyan/10 rounded-lg text-ai-cyan">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-bold mb-2">Revenue Focused</h4>
-                            <p class="text-ai-text-muted">We don't report on vanity metrics. Everything is built around actual bookings and revenue generation.</p>
-                        </div>
-                    </div>
-                 </div>
-            </div>
-            <div class="glass-card p-2 rounded-2xl rotate-2 hover:rotate-0 transition-all duration-500">
-                <div class="bg-ai-dark p-8 rounded-xl border border-white/5 h-full flex flex-col justify-center">
-                    <h3 class="text-2xl font-bold mb-6 text-center">System Status</h3>
-                    <div class="space-y-4">
-                        <div class="flex justify-between text-sm">
-                            <span class="text-ai-text-muted">AI Agents Active</span>
-                            <span class="text-ai-cyan font-mono">24/7 ONLINE</span>
-                        </div>
-                        <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
-                            <div class="bg-tech-gradient-bg h-full w-full animate-pulse"></div>
-                        </div>
-                         <div class="flex justify-between text-sm mt-6">
-                            <span class="text-ai-text-muted">Lead Response Time</span>
-                            <span class="text-ai-violet font-mono">< 10s AVG</span>
-                        </div>
-                        <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
-                             <div class="bg-ai-violet h-full w-[95%]"></div>
-                        </div>
-                         <div class="flex justify-between text-sm mt-6 mb-2">
-                            <span class="text-ai-text-muted">Booking Efficiency</span>
-                            <span class="text-ai-cyan font-mono">+400% INCREASE</span>
-                        </div>
-                         <div class="flex items-end h-24 gap-2">
-                            <div class="bg-ai-cyan/30 w-full h-1/4 rounded-t-sm"></div>
-                            <div class="bg-ai-cyan/50 w-full h-2/4 rounded-t-sm"></div>
-                            <div class="bg-ai-cyan/70 w-full h-3/4 rounded-t-sm"></div>
-                            <div class="bg-tech-gradient-bg w-full h-full rounded-t-sm animate-pulse-slow"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-24 px-6 relative overflow-hidden">
-        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-ai-cyan/10 rounded-full blur-[120px] -z-10"></div>
-        
-        <div class="container mx-auto max-w-4xl text-center glass-card p-16 rounded-3xl border-ai-cyan/20">
-            <h2 class="font-display text-4xl md:text-5xl mb-8">Ready to automate your lead flow?</h2>
-            <p class="text-xl text-ai-text-muted mb-12 max-w-2xl mx-auto">Initial consultations are available for businesses ready to scale with next-generation infrastructure.</p>
-            
-            <div class="flex flex-col items-center space-y-6">
-                <a href="mailto:vnresolutions@gmail.com" class="group relative inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-ai-dark transition-all duration-300 bg-tech-gradient-bg rounded-sm hover:shadow-[0_0_40px_rgba(138,43,226,0.5)]">
-                    <span class="mr-3">Initiate Contact</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                </a>
-                <a href="mailto:vnresolutions@gmail.com" class="text-ai-cyan/70 hover:text-ai-cyan transition-colors font-mono">vnresolutions@gmail.com</a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-12 border-t border-white/5 px-6 bg-ai-dark">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-             <div class="flex items-center gap-3">
-                <div class="w-8 h-8 bg-gradient-to-br from-ai-cyan to-ai-violet rounded-md flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
-                </div>
-                <span class="text-lg font-bold tracking-tight text-white">VN <span class="tech-gradient-text">RESOLUTIONS</span></span>
-            </div>
-            
-            <div class="text-xs text-ai-text-muted uppercase tracking-widest text-center">
-                AI Receptionists • Facebook Ads • Automated Growth
-            </div>
-            <div class="text-sm text-ai-text-muted flex gap-4">
-                <span>© 2025 VN Resolutions.</span>
-                <a href="#" class="hover:text-ai-cyan">Privacy</a>
-                <a href="#" class="hover:text-ai-cyan">Terms</a>
-            </div>
-        </div>
+    <footer class="py-12 border-t border-white/5 text-center">
+        <p class="text-[10px] uppercase tracking-[0.5em] text-slate-500">© 2025 VN Resolutions • London • New York • Dubai</p>
     </footer>
 
 </body>
