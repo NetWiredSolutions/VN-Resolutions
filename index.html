@@ -2,19 +2,23 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VN Resolutions | Enterprise AI Reception & Growth Systems</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VN Resolutions | Enterprise AI Reception & Global Growth</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'ai-dark': '#050A1F', 
-                        'ai-surface': '#0A112E', 
-                        'ai-cyan': '#00F0FF', 
-                        'ai-violet': '#8A2BE2', 
-                        'ai-text-muted': '#94A3B8'
+                        'ai-dark': '#020617', 
+                        'ai-surface': '#0f172a', 
+                        'ai-cyan': '#22d3ee', 
+                        'ai-violet': '#818cf8', 
+                        'premium-gold': '#D4AF37'
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -24,145 +28,305 @@
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
     <style>
         body {
-            background-color: #050A1F;
-            color: #E2E8F0;
-            font-family: 'Inter', sans-serif;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300F0FF' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-color: #020617;
+            color: #f8fafc;
+            overflow-x: hidden;
         }
-        .tech-gradient-text { background: linear-gradient(to right, #00F0FF, #8A2BE2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .tech-gradient-bg { background: linear-gradient(to right, #00F0FF, #8A2BE2); }
-        .glass-card {
-            background: rgba(10, 17, 46, 0.7);
+        .glass-nav {
+            background: rgba(2, 6, 23, 0.8);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        .glow-on-hover:hover {
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
-            border-color: rgba(0, 240, 255, 0.6);
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(34, 211, 238, 0.1) 0%, transparent 70%);
         }
-        @keyframes pulse-glow {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.1); }
+        .stats-card {
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 0.9));
+            border: 1px solid rgba(255,255,255,0.08);
         }
-        .animate-pulse-slow { animation: pulse-glow 6s infinite ease-in-out; }
+        .text-gradient {
+            background: linear-gradient(to right, #22d3ee, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Fix for mobile text wrapping */
+        h1 { word-spacing: -2px; }
+        @media (max-width: 640px) {
+            .mobile-padding { padding-left: 1.5rem; padding-right: 1.5rem; }
+        }
     </style>
 </head>
 <body class="antialiased">
 
-    <nav class="fixed w-full z-50 bg-ai-dark/90 backdrop-blur-md border-b border-white/5 py-4">
+    <nav class="fixed w-full z-50 glass-nav py-4">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-3 group cursor-pointer">
-                <div class="w-10 h-10 bg-gradient-to-br from-ai-cyan to-ai-violet rounded-lg flex items-center justify-center group-hover:shadow-[0_0_20px_rgba(0,240,255,0.5)] transition-all duration-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-ai-cyan rounded flex items-center justify-center">
+                    <span class="text-ai-dark font-black text-xs">VN</span>
                 </div>
-                <span class="text-xl font-bold tracking-tight text-white uppercase">VN <span class="tech-gradient-text">RESOLUTIONS</span></span>
+                <span class="text-sm font-bold tracking-[0.3em] uppercase hidden sm:inline">Resolutions</span>
             </div>
-            <div class="hidden md:flex items-center space-x-8 text-sm uppercase tracking-wider font-medium text-slate-300">
-                <a href="#services" class="hover:text-ai-cyan transition-colors">Services</a>
-                <a href="#how-it-works" class="hover:text-ai-cyan transition-colors">Process</a>
-                <a href="#contact" class="px-6 py-2 rounded-sm bg-white/5 border border-ai-cyan/30 text-ai-cyan hover:bg-ai-cyan hover:text-ai-dark transition-all duration-300 font-bold">Get Started</a>
+            <div class="flex items-center gap-8">
+                <a href="#results" class="text-[10px] uppercase tracking-widest font-bold hover:text-ai-cyan transition-colors">Results</a>
+                <a href="#contact" class="bg-white text-ai-dark px-5 py-2 rounded-sm text-[10px] uppercase font-bold tracking-widest hover:bg-ai-cyan transition-all">Request Access</a>
             </div>
         </div>
     </nav>
 
-    <header class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-ai-cyan/10 rounded-full blur-[120px] -z-10 animate-pulse-slow"></div>
-        <div class="absolute top-1/3 left-1/4 w-72 h-72 bg-ai-violet/10 rounded-full blur-3xl -z-10"></div>
-        
-        <div class="container mx-auto px-6 relative z-10 text-center">
-            <div class="max-w-4xl mx-auto">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-ai-cyan/30 bg-ai-cyan/5 text-ai-cyan text-xs font-bold uppercase tracking-[0.2em] mb-10">
-                    <span class="flex h-2 w-2 relative">
+    <header class="relative min-h-screen flex items-center pt-20 overflow-hidden hero-gradient">
+        <div class="container mx-auto mobile-padding grid lg:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right" data-aos-duration="1000">
+                <div class="inline-flex items-center gap-2 mb-6 px-3 py-1 rounded-full border border-ai-cyan/20 bg-ai-cyan/5">
+                    <span class="relative flex h-2 w-2">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-ai-cyan opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-ai-cyan"></span>
                     </span>
-                    The Future of Reception
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-ai-cyan">Autonomous Growth Systems</span>
                 </div>
-                
-                <h1 class="font-display text-5xl md:text-8xl mb-8 leading-[1.1] text-white">
-                    We Build <span class="tech-gradient-text">AI Receptionists</span> <br>& Automated Growth Systems.
+                <h1 class="font-display text-5xl md:text-7xl lg:text-8xl mb-6 leading-[1.05]">
+                    The New Standard of <span class="italic text-gradient">Scale.</span>
                 </h1>
-                
-                <p class="text-lg md:text-xl text-ai-text-muted mb-12 leading-relaxed max-w-2xl mx-auto font-light tracking-wide">
-                    Capture leads, book appointments, and grow revenue—automatically. <br class="hidden md:block">
-                    Stop missing calls and start scaling with enterprise-grade AI.
+                <p class="text-slate-400 text-lg md:text-xl mb-10 max-w-xl leading-relaxed font-light">
+                    We architect end-to-end AI infrastructure that captures attention, qualifies leads, and closes appointments—while you sleep.
                 </p>
-                
-                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                    <a href="#contact" class="tech-gradient-bg text-ai-dark font-bold px-12 py-5 rounded-sm hover:shadow-[0_0_30px_rgba(0,240,255,0.6)] transition-all text-sm uppercase tracking-widest min-w-[240px]">
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="bg-ai-cyan text-ai-dark px-10 py-5 rounded-sm font-bold text-center hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] transition-all uppercase text-xs tracking-widest">
                         Initialize System
                     </a>
-                    <a href="#services" class="px-12 py-5 border border-slate-700 hover:border-ai-cyan/50 hover:bg-white/5 transition-all rounded-sm text-sm uppercase tracking-widest min-w-[240px]">
-                        Explore Solutions
+                    <a href="#results" class="border border-white/10 px-10 py-5 rounded-sm font-bold text-center hover:bg-white/5 transition-all uppercase text-xs tracking-widest">
+                        View Performance
                     </a>
                 </div>
+            </div>
+            
+            <div class="relative" data-aos="zoom-in" data-aos-duration="1200">
+                <div class="stats-card p-6 md:p-10 rounded-2xl shadow-2xl relative z-10">
+                    <div class="flex justify-between items-start mb-10">
+                        <div>
+                            <p class="text-slate-500 text-[10px] uppercase tracking-widest mb-1">Efficiency Score</p>
+                            <h4 class="text-4xl font-bold">99.4<span class="text-ai-cyan">%</span></h4>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-slate-500 text-[10px] uppercase tracking-widest mb-1">Status</p>
+                            <p class="text-ai-cyan font-mono text-xs animate-pulse">OPTIMIZED</p>
+                        </div>
+                    </div>
+                    <canvas id="heroChart" height="150"></canvas>
+                    <div class="mt-8 pt-8 border-t border-white/5 grid grid-cols-2 gap-4 text-center">
+                        <div>
+                            <p class="text-slate-500 text-[9px] uppercase tracking-widest">Active Clients</p>
+                            <p class="text-xl font-bold font-mono">140+</p>
+                        </div>
+                        <div>
+                            <p class="text-slate-500 text-[9px] uppercase tracking-widest">Lead ROI</p>
+                            <p class="text-xl font-bold font-mono">12.4x</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-ai-violet/20 blur-[80px] -z-10"></div>
             </div>
         </div>
     </header>
 
-    <section class="py-24 px-6 bg-gradient-to-b from-ai-dark to-ai-surface border-y border-white/5">
-        <div class="container mx-auto text-center">
-             <h2 class="text-xs uppercase tracking-[0.4em] text-ai-cyan mb-8 font-bold">The Mission</h2>
-             <h3 class="font-display text-3xl md:text-5xl max-w-4xl mx-auto leading-tight italic text-slate-200">
-                Helping businesses stop missing calls and start converting attention into revenue with <span class="tech-gradient-text not-italic font-bold">Precision Automation.</span>
-            </h3>
+    <section class="py-24 bg-ai-surface border-y border-white/5">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-ai-cyan text-xs font-bold uppercase tracking-[0.5em] mb-10" data-aos="fade-up">Global Infrastructure</p>
+            <h2 class="font-display text-3xl md:text-5xl lg:text-6xl italic text-slate-200 max-w-5xl mx-auto leading-tight" data-aos="fade-up" data-aos-delay="100">
+                "Eliminating human error from the most critical stage of your <span class="not-italic text-white font-bold">Sales Funnel.</span>"
+            </h2>
         </div>
     </section>
 
-    <section id="services" class="py-32 px-6">
+    <section id="results" class="py-32 bg-ai-dark relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="mb-20">
+                <h2 class="font-display text-4xl md:text-6xl mb-4">Neural Performance</h2>
+                <div class="w-24 h-1 bg-ai-cyan"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="p-8 md:p-12 rounded-2xl bg-slate-900/40 border border-white/5" data-aos="fade-up">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div class="w-2 h-2 rounded-full bg-red-500"></div>
+                        <h3 class="uppercase tracking-widest text-xs font-bold text-slate-400">Manual Operations (Typical)</h3>
+                    </div>
+                    <ul class="space-y-8">
+                        <li class="flex justify-between items-end border-b border-white/5 pb-4">
+                            <span class="text-slate-500 text-sm">Missed Call Rate</span>
+                            <span class="text-2xl font-mono">24-38%</span>
+                        </li>
+                        <li class="flex justify-between items-end border-b border-white/5 pb-4">
+                            <span class="text-slate-500 text-sm">Response Time</span>
+                            <span class="text-2xl font-mono">Avg 4.5hrs</span>
+                        </li>
+                        <li class="flex justify-between items-end border-b border-white/5 pb-4">
+                            <span class="text-slate-500 text-sm">Weekend Coverage</span>
+                            <span class="text-2xl font-mono text-red-500">None</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="p-8 md:p-12 rounded-2xl bg-ai-cyan/5 border border-ai-cyan/30 shadow-[0_0_50px_rgba(34,211,238,0.1)]" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div class="w-2 h-2 rounded-full bg-ai-cyan animate-pulse"></div>
+                        <h3 class="uppercase tracking-widest text-xs font-bold text-ai-cyan">VN Integrated Systems</h3>
+                    </div>
+                    <ul class="space-y-8">
+                        <li class="flex justify-between items-end border-b border-ai-cyan/10 pb-4">
+                            <span class="text-slate-400 text-sm">Missed Call Rate</span>
+                            <span class="text-3xl font-mono text-ai-cyan font-bold">0.0%</span>
+                        </li>
+                        <li class="flex justify-between items-end border-b border-ai-cyan/10 pb-4">
+                            <span class="text-slate-400 text-sm">Response Time</span>
+                            <span class="text-3xl font-mono text-ai-cyan font-bold">&lt; 8sec</span>
+                        </li>
+                        <li class="flex justify-between items-end border-b border-ai-cyan/10 pb-4">
+                            <span class="text-slate-400 text-sm">Weekend Coverage</span>
+                            <span class="text-3xl font-mono text-ai-cyan font-bold">24/7/365</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 bg-ai-surface">
+        <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+            <div data-aos="fade-right">
+                <p class="text-ai-cyan font-bold text-[10px] uppercase tracking-[0.4em] mb-6">Proven Acquisition</p>
+                <h2 class="font-display text-4xl md:text-6xl mb-8">Tested Strategies. <br><span class="text-gradient">Predictable ROI.</span></h2>
+                <p class="text-slate-400 text-lg mb-8 font-light">
+                    We don't guess with your budget. We deploy proprietary ad-spend frameworks on Meta and Google that are engineered to trigger high-intent actions.
+                </p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-ai-cyan/20 flex items-center justify-center text-ai-cyan text-[10px] mt-1 shrink-0">1</div>
+                        <p class="text-slate-300"><strong class="text-white">Pattern Interruption:</strong> Ad creatives designed to stop the scroll and filter for high-value leads only.</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-ai-cyan/20 flex items-center justify-center text-ai-cyan text-[10px] mt-1 shrink-0">2</div>
+                        <p class="text-slate-300"><strong class="text-white">Direct-Response AI:</strong> Every ad click initiates a conversation with an AI agent that qualifies and books the lead immediately.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative" data-aos="fade-left">
+                <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000" alt="Ads Dashboard" class="w-full grayscale hover:grayscale-0 transition-all duration-1000">
+                </div>
+                <div class="absolute -bottom-6 -right-6 md:right-10 bg-ai-dark p-6 rounded-xl border border-ai-cyan/30 shadow-2xl">
+                    <p class="text-ai-cyan font-bold text-2xl font-mono">$2.4M+</p>
+                    <p class="text-slate-500 text-[9px] uppercase tracking-widest">Managed Monthly Ad Spend</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 px-6">
         <div class="container mx-auto">
             <div class="text-center mb-24">
-                 <h2 class="font-display text-5xl mb-6">Neural Solutions</h2>
-                 <div class="w-20 h-1 tech-gradient-bg mx-auto rounded-full"></div>
+                <h2 class="font-display text-5xl mb-6 italic">Core Systems</h2>
+                <div class="w-20 h-1 bg-ai-cyan mx-auto"></div>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="glass-card p-12 rounded-xl text-center glow-on-hover transition-all duration-500">
-                    <div class="mb-8 p-4 bg-ai-cyan/10 rounded-full inline-block text-ai-cyan">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-10 rounded-2xl border border-white/5 bg-slate-900/20 hover:border-ai-cyan/50 transition-all group" data-aos="fade-up">
+                    <div class="mb-8 text-ai-cyan group-hover:scale-110 transition-transform">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="1.5" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
                     </div>
-                    <h4 class="text-2xl font-bold mb-4">AI Receptionists</h4>
-                    <p class="text-ai-text-muted text-sm leading-relaxed">24/7 AI-powered receptionists that qualify inbound leads and book appointments automatically.</p>
+                    <h4 class="text-2xl font-bold mb-4 italic">AI Receptionists</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">Multilingual voice and text agents that handle objections and book live on your calendar.</p>
                 </div>
-                <div class="glass-card p-12 rounded-xl text-center glow-on-hover transition-all duration-500">
-                    <div class="mb-8 p-4 bg-ai-violet/10 rounded-full inline-block text-ai-violet">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                
+                <div class="p-10 rounded-2xl border border-white/5 bg-slate-900/20 hover:border-ai-violet/50 transition-all group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="mb-8 text-ai-violet group-hover:scale-110 transition-transform">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="1.5" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                     </div>
-                    <h4 class="text-2xl font-bold mb-4">Ads Management</h4>
-                    <p class="text-ai-text-muted text-sm leading-relaxed">High-converting Facebook & Instagram campaigns designed for high-intent lead generation.</p>
+                    <h4 class="text-2xl font-bold mb-4 italic">Hyper-Scale Ads</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">Aggressive customer acquisition via Meta, Google, and TikTok using tested conversion patterns.</p>
                 </div>
-                <div class="glass-card p-12 rounded-xl text-center glow-on-hover transition-all duration-500">
-                    <div class="mb-8 p-4 bg-ai-cyan/10 rounded-full inline-block text-ai-cyan">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+
+                <div class="p-10 rounded-2xl border border-white/5 bg-slate-900/20 hover:border-ai-cyan/50 transition-all group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="mb-8 text-ai-cyan group-hover:scale-110 transition-transform">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                     </div>
-                    <h4 class="text-2xl font-bold mb-4">Lead Routing</h4>
-                    <p class="text-ai-text-muted text-sm leading-relaxed">Instant automated workflows that route leads within seconds to ensure zero lead leakage.</p>
+                    <h4 class="text-2xl font-bold mb-4 italic">Workflow Logic</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">CRM automation that bridges the gap between lead capture and revenue fulfillment.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-40 px-6 text-center">
-        <div class="max-w-4xl mx-auto glass-card p-20 rounded-2xl border-ai-cyan/20">
-            <h2 class="font-display text-5xl mb-8 leading-tight text-white">Scale With Next-Gen <br> Infrastructure.</h2>
-            <p class="text-ai-text-muted text-lg mb-12 max-w-xl mx-auto font-light">Available for businesses ready to automate their entire appointment flow.</p>
-            <a href="mailto:vnresolutions@gmail.com" class="tech-gradient-bg text-ai-dark font-black px-12 py-5 text-sm uppercase tracking-widest hover:shadow-[0_0_50px_rgba(0,240,255,0.4)] transition-all">
-                Initiate Consultation
-            </a>
-            <div class="mt-12">
-                <span class="text-ai-cyan/50 font-mono text-sm tracking-widest">VNRESOLUTIONS@GMAIL.COM</span>
+    <section id="contact" class="py-40 bg-ai-dark border-t border-white/5">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-4xl mx-auto p-12 md:p-24 rounded-3xl bg-gradient-to-b from-ai-surface to-ai-dark border border-white/10 relative overflow-hidden">
+                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+                <h2 class="font-display text-5xl md:text-7xl mb-8 relative z-10">Apply for <span class="italic text-ai-cyan">Scale.</span></h2>
+                <p class="text-slate-400 text-lg mb-12 max-w-xl mx-auto font-light relative z-10">
+                    We only partner with businesses ready for significant volume increases. Limited onboarding slots available for Q1 2026.
+                </p>
+                <a href="mailto:vnresolutions@gmail.com" class="inline-block bg-white text-ai-dark font-black px-16 py-6 text-xs uppercase tracking-[0.3em] hover:bg-ai-cyan transition-all relative z-10 shadow-2xl">
+                    Initiate Consultation
+                </a>
+                <div class="mt-16 relative z-10">
+                    <span class="text-slate-600 font-mono text-[10px] tracking-[0.6em] uppercase">VNRESOLUTIONS@GMAIL.COM</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 border-t border-white/5 text-center">
-        <p class="text-[10px] uppercase tracking-[0.5em] text-slate-500">© 2025 VN Resolutions • London • New York • Dubai</p>
+    <footer class="py-12 bg-black border-t border-white/5">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p class="text-[9px] uppercase tracking-[0.5em] text-slate-600">© 2026 VN Resolutions Global Systems</p>
+            <div class="flex gap-8">
+                <span class="text-[9px] uppercase tracking-widest text-slate-600">London</span>
+                <span class="text-[9px] uppercase tracking-widest text-slate-600">New York</span>
+                <span class="text-[9px] uppercase tracking-widest text-slate-600">Dubai</span>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        const ctx = document.getElementById('heroChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+                datasets: [{
+                    label: 'Lead Conversion %',
+                    data: [12, 19, 45, 65, 82, 94],
+                    borderColor: '#22d3ee',
+                    backgroundColor: 'rgba(34, 211, 238, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 3,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { display: false },
+                    x: { display: false }
+                }
+            }
+        });
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out-quad'
+        });
+    </script>
 
 </body>
 </html>
