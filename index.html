@@ -3,26 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>VN Resolutions | Enterprise Growth Infrastructure</title>
+    <title>VN Resolutions | Autonomous Growth Infrastructure</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'brand-bg': '#05070a',
-                        'brand-surface': '#0a0d14',
+                        'brand-bg': '#030509',
                         'brand-accent': '#00f0ff',
-                        'brand-border': 'rgba(255,255,255,0.08)'
-                    },
-                    fontFamily: {
-                        'header': ['Montserrat', 'sans-serif'],
-                        'serif': ['Playfair Display', 'serif'],
-                        'sans': ['Inter', 'sans-serif']
+                        'brand-violet': '#7000ff',
                     }
                 }
             }
@@ -31,181 +25,234 @@
 
     <style>
         body {
-            background-color: #05070a;
+            background-color: #030509;
             color: #e2e8f0;
+            font-family: 'Inter', sans-serif;
             overflow-x: hidden;
         }
-        .container-premium {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+
+        /* Unique Feature: Animated Grid Background */
+        .grid-bg {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            mask-image: radial-gradient(circle at center, black, transparent 80%);
         }
-        /* The "Scale the Unscalable" Font Style */
+
+        /* Floating Orbs for Depth */
+        .orb {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            opacity: 0.15;
+            animation: float 20s infinite alternate;
+        }
+
+        @keyframes float {
+            from { transform: translate(0, 0); }
+            to { transform: translate(100px, 50px); }
+        }
+
         .hero-title {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
-            letter-spacing: -0.04em;
-            line-height: 0.9;
+            letter-spacing: -0.05em;
+            line-height: 0.85;
             text-transform: uppercase;
         }
-        .nav-blur {
-            background: rgba(5, 7, 10, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--brand-border);
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
         }
-        .package-card {
-            background: #0a0d14;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .package-card:hover {
+
+        .glass-card:hover {
             border-color: #00f0ff;
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 240, 255, 0.05);
+            background: rgba(255, 255, 255, 0.04);
         }
-        input, select, textarea {
-            background: rgba(255,255,255,0.03) !important;
-            border: 1px solid rgba(255,255,255,0.1) !important;
-            color: white !important;
+
+        /* Live Activity Ticker */
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            background: rgba(0, 240, 255, 0.05);
+            border-bottom: 1px solid rgba(0, 240, 255, 0.1);
+            padding: 10px 0;
         }
-        input:focus, select:focus {
-            border-color: #00f0ff !important;
-            outline: none;
+
+        .ticker {
+            display: flex;
+            white-space: nowrap;
+            animation: ticker 30s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <nav class="fixed top-0 w-full z-[100] nav-blur">
-        <div class="container-premium h-20 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-1 h-6 bg-brand-accent"></div>
-                <span class="font-header font-extrabold tracking-widest text-sm italic">VN</span>
+    <div class="grid-bg"></div>
+    <div class="orb bg-brand-accent top-[-10%] left-[-10%]"></div>
+    <div class="orb bg-brand-violet bottom-[-10%] right-[-10%]"></div>
+
+    <div class="ticker-wrap fixed top-0 z-[110]">
+        <div class="ticker text-[9px] font-bold uppercase tracking-[0.4em] text-brand-accent">
+            <span class="px-8">● AI Receptionist Online: 1,402 Active Sessions</span>
+            <span class="px-8">● Average ROI: 12.4x</span>
+            <span class="px-8">● Global Latency: 42ms</span>
+            <span class="px-8">● New Deployment: Real Estate Hub Dubai</span>
+            <span class="px-8">● System Status: Optimized</span>
+            <span class="px-8">● AI Receptionist Online: 1,402 Active Sessions</span>
+            <span class="px-8">● Average ROI: 12.4x</span>
+            <span class="px-8">● Global Latency: 42ms</span>
+            <span class="px-8">● New Deployment: Real Estate Hub Dubai</span>
+            <span class="px-8">● System Status: Optimized</span>
+        </div>
+    </div>
+
+    <nav class="fixed top-[41px] w-full z-[100] bg-brand-bg/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-8 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 bg-brand-accent rounded-full animate-pulse"></div>
+                <span class="font-black tracking-tighter text-xl uppercase">VN</span>
             </div>
-            <a href="#contact" class="text-[10px] font-bold tracking-[0.3em] uppercase bg-white text-black px-6 py-2.5 hover:bg-brand-accent transition-all">Request Onboarding</a>
+            <div class="flex items-center gap-8">
+                <a href="#systems" class="hidden md:block text-[10px] font-bold tracking-widest text-slate-400 hover:text-white transition-colors uppercase">Systems</a>
+                <a href="#contact" class="bg-white text-black px-6 py-2 text-[10px] font-bold tracking-widest uppercase hover:bg-brand-accent transition-all">Request Access</a>
+            </div>
         </div>
     </nav>
 
-    <section class="relative min-h-screen flex flex-col justify-center items-center text-center pt-20">
-        <div class="container-premium" data-aos="fade-up">
-            <h1 class="hero-title text-6xl md:text-8xl lg:text-[10rem] mb-8">
-                Scale the <br> <span class="text-brand-accent">Unscalable.</span>
+    <section class="min-h-screen flex flex-col justify-center items-center text-center px-8 relative">
+        <div class="max-w-5xl" data-aos="fade-up">
+            <p class="font-serif italic text-brand-accent text-xl md:text-2xl mb-6">Efficiency through autonomy.</p>
+            <h1 class="hero-title text-6xl md:text-8xl lg:text-[11rem] text-white">
+                Scale the <br> <span class="text-transparent" style="-webkit-text-stroke: 1px #00f0ff;">Unscalable.</span>
             </h1>
-            <p class="font-serif italic text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto mb-12">
-                Enterprise AI infrastructure designed to eliminate human bottlenecks.
-            </p>
-            <div class="w-px h-24 bg-gradient-to-b from-brand-accent to-transparent mx-auto"></div>
-        </div>
-    </section>
-
-    <section id="solutions" class="py-32 bg-brand-surface">
-        <div class="container-premium">
-            <div class="text-center mb-20">
-                <h2 class="font-header text-3xl font-bold uppercase tracking-widest mb-4">Core Systems</h2>
-                <div class="h-px w-20 bg-brand-accent mx-auto"></div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="package-card p-10 flex flex-col" data-aos="fade-up">
-                    <h3 class="font-header text-xl mb-2">Neural Chat</h3>
-                    <p class="text-brand-accent text-[10px] font-bold tracking-widest mb-6 uppercase">Autonomous Support</p>
-                    <p class="text-slate-400 text-sm mb-8 leading-relaxed">24/7 AI-driven web receptionists capable of qualifying leads and resolving complex inquiries without human intervention.</p>
-                    <ul class="text-[11px] space-y-3 mb-10 text-slate-300 uppercase tracking-tighter">
-                        <li class="flex items-center gap-2">✓ Custom Knowledge Base</li>
-                        <li class="flex items-center gap-2">✓ Live CRM Integration</li>
-                        <li class="flex items-center gap-2">✓ Lead Scoring Logic</li>
-                    </ul>
-                </div>
-
-                <div class="package-card p-10 border-brand-accent/40 bg-brand-bg flex flex-col" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="font-header text-xl mb-2">Omni-Growth</h3>
-                    <p class="text-brand-accent text-[10px] font-bold tracking-widest mb-6 uppercase">Full-Funnel Acquisition</p>
-                    <p class="text-slate-400 text-sm mb-8 leading-relaxed">The ultimate combination of aggressive Meta/Google ad spend management paired with Neural Voice receptionists.</p>
-                    <ul class="text-[11px] space-y-3 mb-10 text-slate-300 uppercase tracking-tighter font-bold">
-                        <li class="flex items-center gap-2 text-brand-accent">✓ High-Intent Ad Strategy</li>
-                        <li class="flex items-center gap-2">✓ AI Voice Appointment Booking</li>
-                        <li class="flex items-center gap-2 text-brand-accent">✓ Guaranteed Performance Metrics</li>
-                    </ul>
-                </div>
-
-                <div class="package-card p-10 flex flex-col" data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="font-header text-xl mb-2">Media Precision</h3>
-                    <p class="text-brand-accent text-[10px] font-bold tracking-widest mb-6 uppercase">Ad Management</p>
-                    <p class="text-slate-400 text-sm mb-8 leading-relaxed">Pure advertising focus. We manage high-budget campaigns specifically designed for business-to-business lead generation.</p>
-                    <ul class="text-[11px] space-y-3 mb-10 text-slate-300 uppercase tracking-tighter">
-                        <li class="flex items-center gap-2">✓ Creative Asset Production</li>
-                        <li class="flex items-center gap-2">✓ Multi-Channel Scaling</li>
-                        <li class="flex items-center gap-2">✓ Bi-Weekly Performance Logs</li>
-                    </ul>
-                </div>
+            <div class="mt-12 flex flex-col md:flex-row gap-8 justify-center items-center text-[10px] tracking-[0.5em] font-bold text-slate-500 uppercase">
+                <span>Integrated AI Systems</span>
+                <span class="hidden md:block">|</span>
+                <span>Global Growth Partners</span>
+                <span class="hidden md:block">|</span>
+                <span>Tier-1 Infrastructure</span>
             </div>
         </div>
+        <a href="#systems" class="absolute bottom-10 animate-bounce opacity-20 hover:opacity-100 transition-opacity">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 14l-7 7-7-7m14-8l-7 7-7-7"/></svg>
+        </a>
     </section>
 
-    <section id="contact" class="py-40 bg-brand-bg">
-        <div class="container-premium max-w-4xl">
-            <div class="grid lg:grid-cols-2 gap-20">
-                <div data-aos="fade-right">
-                    <h2 class="font-header text-5xl font-extrabold leading-tight mb-8 uppercase italic">Partner <br> With Us.</h2>
-                    <p class="text-slate-400 font-light mb-8 leading-relaxed">
-                        We don't accept all applicants. VN Resolutions works exclusively with companies ready for high-volume automated scaling. 
-                    </p>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-4 group">
-                            <div class="w-10 h-px bg-brand-accent transition-all group-hover:w-20"></div>
-                            <span class="text-[10px] uppercase tracking-[0.4em] text-slate-500">London Ops</span>
-                        </div>
-                        <div class="flex items-center gap-4 group">
-                            <div class="w-10 h-px bg-brand-accent transition-all group-hover:w-20"></div>
-                            <span class="text-[10px] uppercase tracking-[0.4em] text-slate-500">Dubai Hub</span>
-                        </div>
+    <section id="systems" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid lg:grid-cols-4 gap-4">
+                <div class="lg:col-span-2 glass-card p-12 rounded-2xl flex flex-col justify-between min-h-[400px]" data-aos="fade-right">
+                    <div>
+                        <h2 class="text-4xl font-bold mb-6 italic font-serif leading-tight text-white">Stop losing leads to human delay.</h2>
+                        <p class="text-slate-400 font-light leading-relaxed max-w-sm">Our Neural Voice and Chat systems respond in <span class="text-brand-accent font-bold">real-time</span>, qualifying traffic before your competitors even see the notification.</p>
+                    </div>
+                    <div class="mt-12 flex gap-4">
+                        <div class="px-4 py-2 border border-brand-accent/30 rounded-full text-[9px] font-bold text-brand-accent uppercase tracking-widest">Active Onboarding</div>
+                        <div class="px-4 py-2 border border-white/10 rounded-full text-[9px] font-bold text-slate-500 uppercase tracking-widest">Global Support</div>
                     </div>
                 </div>
 
-                <div class="bg-brand-surface p-8 md:p-12 rounded border border-white/5" data-aos="fade-left">
-                    <form action="#" method="POST" class="space-y-6">
-                        <div>
-                            <label class="text-[10px] uppercase tracking-widest font-bold text-slate-500 block mb-2">Select Solution</label>
-                            <select class="w-full p-4 rounded-sm text-sm appearance-none cursor-pointer">
-                                <option>Omni-Growth (Full Stack)</option>
-                                <option>Neural Chatbot Systems</option>
-                                <option>Professional Ad Management</option>
-                                <option>Custom Enterprise Logic</option>
-                            </select>
-                        </div>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <label class="text-[10px] uppercase tracking-widest font-bold text-slate-500 block mb-2">Name</label>
-                                <input type="text" placeholder="John Doe" class="w-full p-4 rounded-sm text-sm">
-                            </div>
-                            <div>
-                                <label class="text-[10px] uppercase tracking-widest font-bold text-slate-500 block mb-2">Company</label>
-                                <input type="text" placeholder="Corp Inc." class="w-full p-4 rounded-sm text-sm">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="text-[10px] uppercase tracking-widest font-bold text-slate-500 block mb-2">Email</label>
-                            <input type="email" placeholder="john@company.com" class="w-full p-4 rounded-sm text-sm">
-                        </div>
-                        <div>
-                            <label class="text-[10px] uppercase tracking-widest font-bold text-slate-500 block mb-2">Monthly Budget</label>
-                            <select class="w-full p-4 rounded-sm text-sm appearance-none cursor-pointer">
-                                <option>$5,000 - $10,000</option>
-                                <option>$10,000 - $50,000</option>
-                                <option>$50,000+</option>
-                            </select>
-                        </div>
-                        <button class="w-full bg-brand-accent text-brand-bg font-black py-5 text-[10px] uppercase tracking-[0.4em] hover:bg-white transition-all shadow-lg">
-                            Request Private Audit
-                        </button>
-                    </form>
+                <div class="glass-card p-12 rounded-2xl flex flex-col justify-center text-center" data-aos="fade-up">
+                    <p class="text-[10px] uppercase tracking-[0.3em] text-slate-500 mb-4">Avg. Conversion Increase</p>
+                    <span class="text-7xl font-black text-brand-accent">+312%</span>
+                </div>
+
+                <div class="glass-card p-12 rounded-2xl flex flex-col justify-center text-center" data-aos="fade-left">
+                    <p class="text-[10px] uppercase tracking-[0.3em] text-slate-500 mb-4">Response Latency</p>
+                    <span class="text-7xl font-black text-white">0.4s</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 border-t border-white/5 text-center opacity-40">
-        <p class="text-[8px] uppercase tracking-[0.8em]">© 2026 VN Resolutions • Engineered for Global Scale</p>
+    <section class="py-32 bg-white/5">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+                <div>
+                    <h2 class="hero-title text-5xl md:text-7xl">Solutions.</h2>
+                    <p class="font-serif italic text-xl text-brand-accent mt-4">Modular growth for modern enterprise.</p>
+                </div>
+                <p class="max-w-xs text-slate-500 text-xs leading-relaxed uppercase tracking-widest">Select the infrastructure tier required for your current operational volume.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10">
+                <div class="bg-brand-bg p-12 hover:bg-brand-accent/5 transition-all group">
+                    <p class="text-brand-accent font-mono text-xs mb-10">01 / CHATBOT</p>
+                    <h3 class="text-2xl font-bold mb-6 uppercase tracking-tighter">Neural Web Reception</h3>
+                    <p class="text-slate-400 text-sm font-light leading-relaxed mb-10">Full-context AI chat agents that live on your site to answer technical questions and book calendar invites 24/7.</p>
+                    <div class="w-10 h-1 bg-brand-accent group-hover:w-full transition-all duration-500"></div>
+                </div>
+                <div class="bg-brand-bg p-12 hover:bg-brand-accent/5 transition-all group border-y md:border-y-0 md:border-x border-white/10">
+                    <p class="text-brand-accent font-mono text-xs mb-10">02 / ADS</p>
+                    <h3 class="text-2xl font-bold mb-6 uppercase tracking-tighter">Acquisition Engine</h3>
+                    <p class="text-slate-400 text-sm font-light leading-relaxed mb-10">Direct-response Meta & Google ads management focused on high-intent lead volume and predictable cost-per-acquisition.</p>
+                    <div class="w-10 h-1 bg-brand-accent group-hover:w-full transition-all duration-500"></div>
+                </div>
+                <div class="bg-brand-bg p-12 hover:bg-brand-accent/5 transition-all group">
+                    <p class="text-brand-accent font-mono text-xs mb-10">03 / FULL STACK</p>
+                    <h3 class="text-2xl font-bold mb-6 uppercase tracking-tighter">The Omni-System</h3>
+                    <p class="text-slate-400 text-sm font-light leading-relaxed mb-10">Total automation. We run the ads, the AI qualifies the calls, and your team simply fulfills the new revenue.</p>
+                    <div class="w-10 h-1 bg-brand-accent group-hover:w-full transition-all duration-500"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-40">
+        <div class="max-w-4xl mx-auto px-8">
+            <div class="glass-card p-12 md:p-20 rounded-3xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-brand-accent/10 blur-3xl"></div>
+                
+                <div class="text-center mb-16">
+                    <h2 class="hero-title text-4xl md:text-6xl mb-6 leading-none">Apply for <br> Onboarding.</h2>
+                    <p class="text-slate-500 text-xs uppercase tracking-[0.5em]">Limited Availability for Q1 2026</p>
+                </div>
+
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-[9px] uppercase tracking-widest font-bold text-slate-500">Company Name</label>
+                            <input type="text" placeholder="Global Corp" class="w-full bg-white/5 border border-white/10 p-4 rounded text-sm focus:border-brand-accent outline-none transition-all">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[9px] uppercase tracking-widest font-bold text-slate-500">Selected Tier</label>
+                            <select class="w-full bg-white/5 border border-white/10 p-4 rounded text-sm focus:border-brand-accent outline-none transition-all appearance-none">
+                                <option>The Omni-System</option>
+                                <option>Acquisition Engine</option>
+                                <option>Neural Web Reception</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[9px] uppercase tracking-widest font-bold text-slate-500">Business Email</label>
+                        <input type="email" placeholder="ceo@company.com" class="w-full bg-white/5 border border-white/10 p-4 rounded text-sm focus:border-brand-accent outline-none transition-all">
+                    </div>
+                    <button class="w-full bg-white text-black py-6 font-black uppercase text-[10px] tracking-[0.5em] hover:bg-brand-accent transition-all">
+                        Initiate Private Consultation
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 border-t border-white/5 text-center">
+        <p class="text-[9px] uppercase tracking-[0.8em] text-slate-600">© 2026 VN Resolutions Global Systems • Built for Scale</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
