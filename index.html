@@ -3,22 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>VN Resolutions | Enterprise Growth Systems</title>
+    <title>VN Resolutions | Enterprise Growth Infrastructure</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'brand-bg': '#02040a',
-                        'brand-surface': '#0d1117',
+                        'brand-bg': '#05070a',
+                        'brand-surface': '#0a0d14',
                         'brand-accent': '#00f0ff',
-                        'brand-muted': '#8b949e',
                         'brand-border': 'rgba(255,255,255,0.08)'
+                    },
+                    fontFamily: {
+                        'header': ['Montserrat', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
                     }
                 }
             }
@@ -26,205 +30,187 @@
     </script>
 
     <style>
-        :root { scroll-behavior: smooth; }
         body {
-            background-color: #02040a;
-            color: #e6edf3;
-            font-family: 'Inter', sans-serif;
+            background-color: #05070a;
+            color: #e2e8f0;
             overflow-x: hidden;
         }
-        /* Balanced Centering Container */
-        .content-container {
-            max-width: 1100px;
+        .container-premium {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 2rem;
+        }
+        /* The "Scale the Unscalable" Font Style */
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 0.9;
+            text-transform: uppercase;
         }
         .nav-blur {
-            background: rgba(2, 4, 10, 0.85);
-            backdrop-filter: saturate(180%) blur(20px);
+            background: rgba(5, 7, 10, 0.8);
+            backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--brand-border);
         }
-        /* Subtle texture for that Amazon Premium feel */
-        .noise-bg {
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            opacity: 0.02;
-            pointer-events: none;
+        .package-card {
+            background: #0a0d14;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        /* Funnel CSS */
-        .funnel-step {
-            clip-path: polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%);
-            transition: all 0.5s ease;
+        .package-card:hover {
+            border-color: #00f0ff;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 240, 255, 0.05);
+        }
+        input, select, textarea {
+            background: rgba(255,255,255,0.03) !important;
+            border: 1px solid rgba(255,255,255,0.1) !important;
+            color: white !important;
+        }
+        input:focus, select:focus {
+            border-color: #00f0ff !important;
+            outline: none;
         }
     </style>
 </head>
-<body class="antialiased selection:bg-brand-accent selection:text-brand-bg">
-
-    <div class="fixed inset-0 noise-bg z-[999]"></div>
+<body class="antialiased">
 
     <nav class="fixed top-0 w-full z-[100] nav-blur">
-        <div class="content-container h-20 flex justify-between items-center">
-            <div class="flex items-center gap-4">
-                <div class="w-2 h-8 bg-brand-accent"></div>
-                <span class="font-bold tracking-[0.5em] uppercase text-xs">VN <span class="font-light opacity-50">RESOLUTIONS</span></span>
+        <div class="container-premium h-20 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-1 h-6 bg-brand-accent"></div>
+                <span class="font-header font-extrabold tracking-widest text-sm italic">VN</span>
             </div>
-            <div class="hidden md:flex gap-12 text-[10px] uppercase tracking-[0.3em] font-bold">
-                <a href="#results" class="hover:text-brand-accent transition-colors">Data</a>
-                <a href="#systems" class="hover:text-brand-accent transition-colors">Infrastructure</a>
-                <a href="#contact" class="text-brand-accent px-4 py-2 border border-brand-accent/20 rounded-sm">Consultation</a>
-            </div>
+            <a href="#contact" class="text-[10px] font-bold tracking-[0.3em] uppercase bg-white text-black px-6 py-2.5 hover:bg-brand-accent transition-all">Request Onboarding</a>
         </div>
     </nav>
 
-    <section class="relative min-h-screen flex flex-col justify-center items-center text-center">
-        <div class="content-container" data-aos="fade-up">
-            <p class="text-brand-accent text-[10px] font-bold uppercase tracking-[0.6em] mb-10">Global Performance Systems</p>
-            <h1 class="font-display text-5xl md:text-8xl lg:text-9xl mb-10 leading-[1] tracking-tighter">
-                Scale the <span class="italic text-white opacity-90">Unscalable.</span>
+    <section class="relative min-h-screen flex flex-col justify-center items-center text-center pt-20">
+        <div class="container-premium" data-aos="fade-up">
+            <h1 class="hero-title text-6xl md:text-8xl lg:text-[10rem] mb-8">
+                Scale the <br> <span class="text-brand-accent">Unscalable.</span>
             </h1>
-            <p class="text-brand-muted text-lg md:text-xl max-w-xl mx-auto mb-16 leading-relaxed font-light">
-                Enterprise AI receptionists and high-intent advertising systems designed for high-growth firms.
+            <p class="font-serif italic text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto mb-12">
+                Enterprise AI infrastructure designed to eliminate human bottlenecks.
             </p>
-            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                <a href="#contact" class="w-full sm:w-auto bg-white text-black px-12 py-5 text-[11px] font-black uppercase tracking-[0.4em] hover:bg-brand-accent transition-all duration-500">
-                    Apply Now
-                </a>
-                <a href="#results" class="w-full sm:w-auto border border-white/10 text-white px-12 py-5 text-[11px] font-bold uppercase tracking-[0.4em] hover:bg-white/5 transition-all">
-                    View Impact
-                </a>
-            </div>
+            <div class="w-px h-24 bg-gradient-to-b from-brand-accent to-transparent mx-auto"></div>
         </div>
     </section>
 
-    <section id="results" class="py-32 bg-brand-surface border-y border-white/5">
-        <div class="content-container">
-            <div class="text-center mb-24">
-                <h2 class="font-display text-4xl md:text-6xl mb-6 italic italic">System Diagnostics</h2>
-                <div class="w-16 h-1 bg-brand-accent mx-auto"></div>
+    <section id="solutions" class="py-32 bg-brand-surface">
+        <div class="container-premium">
+            <div class="text-center mb-20">
+                <h2 class="font-header text-3xl font-bold uppercase tracking-widest mb-4">Core Systems</h2>
+                <div class="h-px w-20 bg-brand-accent mx-auto"></div>
             </div>
 
-            <div class="max-w-2xl mx-auto space-y-2 mb-32" data-aos="zoom-in">
-                <div class="funnel-step bg-brand-accent/10 p-6 text-center border-x border-brand-accent/20">
-                    <span class="text-[10px] uppercase tracking-widest font-bold">Inbound Attention (Proven Ads)</span>
-                    <p class="text-2xl font-light mt-1">100% REACH</p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="package-card p-10 flex flex-col" data-aos="fade-up">
+                    <h3 class="font-header text-xl mb-2">Neural Chat</h3>
+                    <p class="text-brand-accent text-[10px] font-bold tracking-widest mb-6 uppercase">Autonomous Support</p>
+                    <p class="text-slate-400 text-sm mb-8 leading-relaxed">24/7 AI-driven web receptionists capable of qualifying leads and resolving complex inquiries without human intervention.</p>
+                    <ul class="text-[11px] space-y-3 mb-10 text-slate-300 uppercase tracking-tighter">
+                        <li class="flex items-center gap-2">✓ Custom Knowledge Base</li>
+                        <li class="flex items-center gap-2">✓ Live CRM Integration</li>
+                        <li class="flex items-center gap-2">✓ Lead Scoring Logic</li>
+                    </ul>
                 </div>
-                <div class="funnel-step bg-brand-accent/20 p-8 text-center border-x border-brand-accent/30 w-[85%] mx-auto">
-                    <span class="text-[10px] uppercase tracking-widest font-bold">AI Qualification (Neural Reception)</span>
-                    <p class="text-3xl font-light mt-1">72% QUALITY SCORE</p>
-                </div>
-                <div class="funnel-step bg-brand-accent/40 p-10 text-center border-x border-brand-accent/40 w-[65%] mx-auto">
-                    <span class="text-[10px] uppercase tracking-widest font-bold">Booked Appointment</span>
-                    <p class="text-4xl font-bold mt-1 text-white">48% CONVERSION</p>
-                </div>
-            </div>
 
-            <div class="grid md:grid-cols-3 gap-12 border-t border-white/5 pt-20">
-                <div class="text-center md:text-left" data-aos="fade-up">
-                    <p class="text-brand-muted text-[10px] uppercase tracking-widest mb-4">Response Velocity</p>
-                    <h4 class="text-5xl font-light text-brand-accent mb-2">0.4s</h4>
-                    <p class="text-xs text-brand-muted leading-relaxed">Latency between lead submission and AI engagement.</p>
+                <div class="package-card p-10 border-brand-accent/40 bg-brand-bg flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="font-header text-xl mb-2">Omni-Growth</h3>
+                    <p class="text-brand-accent text-[10px] font-bold tracking-widest mb-6 uppercase">Full-Funnel Acquisition</p>
+                    <p class="text-slate-400 text-sm mb-8 leading-relaxed">The ultimate combination of aggressive Meta/Google ad spend management paired with Neural Voice receptionists.</p>
+                    <ul class="text-[11px] space-y-3 mb-10 text-slate-300 uppercase tracking-tighter font-bold">
+                        <li class="flex items-center gap-2 text-brand-accent">✓ High-Intent Ad Strategy</li>
+                        <li class="flex items-center gap-2">✓ AI Voice Appointment Booking</li>
+                        <li class="flex items-center gap-2 text-brand-accent">✓ Guaranteed Performance Metrics</li>
+                    </ul>
                 </div>
-                <div class="text-center md:text-left" data-aos="fade-up" data-aos-delay="100">
-                    <p class="text-brand-muted text-[10px] uppercase tracking-widest mb-4">Operational Uptime</p>
-                    <h4 class="text-5xl font-light text-brand-accent mb-2">24/7</h4>
-                    <p class="text-xs text-brand-muted leading-relaxed">Uninterrupted capture of after-hours and weekend traffic.</p>
-                </div>
-                <div class="text-center md:text-left" data-aos="fade-up" data-aos-delay="200">
-                    <p class="text-brand-muted text-[10px] uppercase tracking-widest mb-4">Ad Performance</p>
-                    <h4 class="text-5xl font-light text-brand-accent mb-2">14.2x</h4>
-                    <p class="text-xs text-brand-muted leading-relaxed">Average return on advertising spend for integrated firms.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="systems" class="py-40">
-        <div class="content-container">
-            <div class="max-w-3xl mx-auto text-center mb-24">
-                <h2 class="font-display text-4xl md:text-6xl mb-8 leading-tight">Engineered to <br> <span class="italic opacity-70">Capture & Close.</span></h2>
-                <p class="text-brand-muted font-light leading-relaxed">We replace fragile human processes with hardened, autonomous infrastructure.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-px bg-white/10 border border-white/10 rounded overflow-hidden">
-                <div class="bg-brand-bg p-12 md:p-20 hover:bg-brand-surface transition-colors" data-aos="fade-up">
-                    <span class="text-brand-accent text-xs font-mono font-bold mb-6 block">01 / RECEPTION</span>
-                    <h4 class="text-3xl font-display mb-6">Neural Voice Agents</h4>
-                    <p class="text-brand-muted text-sm leading-relaxed font-light">Deploy custom-voiced AI that answers calls instantly, identifies intent, and schedules appointments directly into your CRM.</p>
+                <div class="package-card p-10 flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="font-header text-xl mb-2">Media Precision</h3>
+                    <p class="text-brand-accent text-[10px] font-bold tracking-widest mb-6 uppercase">Ad Management</p>
+                    <p class="text-slate-400 text-sm mb-8 leading-relaxed">Pure advertising focus. We manage high-budget campaigns specifically designed for business-to-business lead generation.</p>
+                    <ul class="text-[11px] space-y-3 mb-10 text-slate-300 uppercase tracking-tighter">
+                        <li class="flex items-center gap-2">✓ Creative Asset Production</li>
+                        <li class="flex items-center gap-2">✓ Multi-Channel Scaling</li>
+                        <li class="flex items-center gap-2">✓ Bi-Weekly Performance Logs</li>
+                    </ul>
                 </div>
-                <div class="bg-brand-bg p-12 md:p-20 hover:bg-brand-surface transition-colors" data-aos="fade-up" data-aos-delay="100">
-                    <span class="text-brand-accent text-xs font-mono font-bold mb-6 block">02 / ACQUISITION</span>
-                    <h4 class="text-3xl font-display mb-6">High-Intent Ads</h4>
-                    <p class="text-brand-muted text-sm leading-relaxed font-light">We run aggressive Meta and Google campaigns using proven data structures to bring you customers, not just clicks.</p>
-                </div>
-                <div class="bg-brand-bg p-12 md:p-20 hover:bg-brand-surface transition-colors" data-aos="fade-up">
-                    <span class="text-brand-accent text-xs font-mono font-bold mb-6 block">03 / LOGIC</span>
-                    <h4 class="text-3xl font-display mb-6">Frictionless Routing</h4>
-                    <p class="text-brand-muted text-sm leading-relaxed font-light">Every lead is instantly enriched and routed to the correct department within seconds of engagement.</p>
-                </div>
-                <div class="bg-brand-bg p-12 md:p-20 hover:bg-brand-surface transition-colors" data-aos="fade-up" data-aos-delay="100">
-                    <span class="text-brand-accent text-xs font-mono font-bold mb-6 block">04 / SCALE</span>
-                    <h4 class="text-3xl font-display mb-6">Predictable Growth</h4>
-                    <p class="text-brand-muted text-sm leading-relaxed font-light">The system scales horizontally. As your ad spend increases, our AI capacity grows instantly to meet the demand.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-32 bg-white text-black">
-        <div class="content-container grid md:grid-cols-2 gap-20 items-center">
-            <div data-aos="fade-right">
-                <h2 class="font-display text-4xl md:text-6xl italic mb-10 leading-tight">Obsessive <br> Optimization.</h2>
-                <div class="space-y-8">
-                    <div class="border-l-4 border-black pl-6">
-                        <p class="text-xs uppercase tracking-widest font-bold mb-2 opacity-50">Before VN Integration</p>
-                        <p class="text-lg font-medium leading-relaxed italic">"60% of leads went cold before we could call them back. Weekends were wasted opportunities."</p>
-                    </div>
-                    <div class="border-l-4 border-brand-accent pl-6">
-                        <p class="text-xs uppercase tracking-widest font-bold mb-2 text-brand-accent">Post VN Integration</p>
-                        <p class="text-lg font-medium leading-relaxed italic">"The AI books our Monday morning appointments while we're still at home on Sunday. Zero leakage."</p>
-                    </div>
-                </div>
-            </div>
-            <div class="relative" data-aos="fade-left">
-                
-                <div class="absolute -top-10 -right-10 w-32 h-32 bg-brand-accent/20 blur-3xl rounded-full"></div>
             </div>
         </div>
     </section>
 
     <section id="contact" class="py-40 bg-brand-bg">
-        <div class="content-container max-w-2xl text-center">
-            <h2 class="font-display text-5xl md:text-7xl mb-12">Secure Your <br> Growth System.</h2>
-            <p class="text-brand-muted text-lg mb-16 font-light">Now accepting high-volume onboarding applications for Q1 2026.</p>
-            <div class="space-y-12">
-                <a href="mailto:vnresolutions@gmail.com" class="inline-block bg-white text-black px-16 py-7 text-[10px] font-black uppercase tracking-[0.5em] rounded-sm hover:bg-brand-accent transition-all duration-700 shadow-2xl">
-                    Request Partner Access
-                </a>
-                <div class="pt-16 opacity-30">
-                    <p class="text-[9px] uppercase tracking-[0.8em]">VNRESOLUTIONS@GMAIL.COM</p>
+        <div class="container-premium max-w-4xl">
+            <div class="grid lg:grid-cols-2 gap-20">
+                <div data-aos="fade-right">
+                    <h2 class="font-header text-5xl font-extrabold leading-tight mb-8 uppercase italic">Partner <br> With Us.</h2>
+                    <p class="text-slate-400 font-light mb-8 leading-relaxed">
+                        We don't accept all applicants. VN Resolutions works exclusively with companies ready for high-volume automated scaling. 
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 group">
+                            <div class="w-10 h-px bg-brand-accent transition-all group-hover:w-20"></div>
+                            <span class="text-[10px] uppercase tracking-[0.4em] text-slate-500">London Ops</span>
+                        </div>
+                        <div class="flex items-center gap-4 group">
+                            <div class="w-10 h-px bg-brand-accent transition-all group-hover:w-20"></div>
+                            <span class="text-[10px] uppercase tracking-[0.4em] text-slate-500">Dubai Hub</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-brand-surface p-8 md:p-12 rounded border border-white/5" data-aos="fade-left">
+                    <form action="#" method="POST" class="space-y-6">
+                        <div>
+                            <label class="text-[10px] uppercase tracking-widest font-bold text-slate-500 block mb-2">Select Solution</label>
+                            <select class="w-full p-4 rounded-sm text-sm appearance-none cursor-pointer">
+                                <option>Omni-Growth (Full Stack)</option>
+                                <option>Neural Chatbot Systems</option>
+                                <option>Professional Ad Management</option>
+                                <option>Custom Enterprise Logic</option>
+                            </select>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-[10px] uppercase tracking-widest font-bold text-slate-500 block mb-2">Name</label>
+                                <input type="text" placeholder="John Doe" class="w-full p-4 rounded-sm text-sm">
+                            </div>
+                            <div>
+                                <label class="text-[10px] uppercase tracking-widest font-bold text-slate-500 block mb-2">Company</label>
+                                <input type="text" placeholder="Corp Inc." class="w-full p-4 rounded-sm text-sm">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="text-[10px] uppercase tracking-widest font-bold text-slate-500 block mb-2">Email</label>
+                            <input type="email" placeholder="john@company.com" class="w-full p-4 rounded-sm text-sm">
+                        </div>
+                        <div>
+                            <label class="text-[10px] uppercase tracking-widest font-bold text-slate-500 block mb-2">Monthly Budget</label>
+                            <select class="w-full p-4 rounded-sm text-sm appearance-none cursor-pointer">
+                                <option>$5,000 - $10,000</option>
+                                <option>$10,000 - $50,000</option>
+                                <option>$50,000+</option>
+                            </select>
+                        </div>
+                        <button class="w-full bg-brand-accent text-brand-bg font-black py-5 text-[10px] uppercase tracking-[0.4em] hover:bg-white transition-all shadow-lg">
+                            Request Private Audit
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 border-t border-white/5">
-        <div class="content-container flex flex-col md:flex-row justify-between items-center opacity-40">
-            <p class="text-[8px] uppercase tracking-[0.6em]">© 2026 VN Resolutions Global Systems</p>
-            <div class="flex gap-8 mt-4 md:mt-0 text-[8px] uppercase tracking-[0.4em]">
-                <span>London</span>
-                <span>New York</span>
-                <span>Dubai</span>
-            </div>
-        </div>
+    <footer class="py-12 border-t border-white/5 text-center opacity-40">
+        <p class="text-[8px] uppercase tracking-[0.8em]">© 2026 VN Resolutions • Engineered for Global Scale</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 900,
-            once: true,
-            offset: 150,
-            easing: 'ease-out-quart'
-        });
+        AOS.init({ duration: 1000, once: true });
     </script>
 </body>
 </html>
