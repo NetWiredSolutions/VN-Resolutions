@@ -31,7 +31,6 @@
             overflow-x: hidden;
         }
 
-        /* Unique Feature: Animated Grid Background */
         .grid-bg {
             position: fixed;
             inset: 0;
@@ -43,7 +42,6 @@
             mask-image: radial-gradient(circle at center, black, transparent 80%);
         }
 
-        /* Floating Orbs for Depth */
         .orb {
             position: absolute;
             width: 500px;
@@ -66,6 +64,7 @@
             letter-spacing: -0.05em;
             line-height: 0.85;
             text-transform: uppercase;
+            text-align: center; /* Forced centering */
         }
 
         .glass-card {
@@ -80,7 +79,6 @@
             background: rgba(255, 255, 255, 0.04);
         }
 
-        /* Live Activity Ticker */
         .ticker-wrap {
             width: 100%;
             overflow: hidden;
@@ -124,9 +122,9 @@
 
     <nav class="fixed top-[41px] w-full z-[100] bg-brand-bg/80 backdrop-blur-md border-b border-white/5">
         <div class="max-w-7xl mx-auto px-8 h-20 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-2 h-2 bg-brand-accent rounded-full animate-pulse"></div>
-                <span class="font-black tracking-tighter text-xl uppercase">VN</span>
+            <div class="flex items-center gap-3">
+                <img src="logo.png" alt="VN Logo" class="h-8 w-auto object-contain">
+                <span class="font-black tracking-tighter text-xl uppercase">VN <span class="font-light opacity-60">Resolutions</span></span>
             </div>
             <div class="flex items-center gap-8">
                 <a href="#systems" class="hidden md:block text-[10px] font-bold tracking-widest text-slate-400 hover:text-white transition-colors uppercase">Systems</a>
@@ -135,8 +133,8 @@
         </div>
     </nav>
 
-    <section class="min-h-screen flex flex-col justify-center items-center text-center px-8 relative">
-        <div class="max-w-5xl" data-aos="fade-up">
+    <section class="min-h-screen flex flex-col justify-center items-center px-8 relative overflow-hidden">
+        <div class="max-w-7xl w-full flex flex-col items-center justify-center text-center" data-aos="fade-up">
             <p class="font-serif italic text-brand-accent text-xl md:text-2xl mb-6">Efficiency through autonomy.</p>
             <h1 class="hero-title text-6xl md:text-8xl lg:text-[11rem] text-white">
                 Scale the <br> <span class="text-transparent" style="-webkit-text-stroke: 1px #00f0ff;">Unscalable.</span>
@@ -185,7 +183,7 @@
         <div class="max-w-7xl mx-auto px-8">
             <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
                 <div>
-                    <h2 class="hero-title text-5xl md:text-7xl">Solutions.</h2>
+                    <h2 class="hero-title text-left text-5xl md:text-7xl">Solutions.</h2>
                     <p class="font-serif italic text-xl text-brand-accent mt-4">Modular growth for modern enterprise.</p>
                 </div>
                 <p class="max-w-xs text-slate-500 text-xs leading-relaxed uppercase tracking-widest">Select the infrastructure tier required for your current operational volume.</p>
@@ -243,7 +241,7 @@
                         <label class="text-[9px] uppercase tracking-widest font-bold text-slate-500">Business Email</label>
                         <input type="email" placeholder="ceo@company.com" class="w-full bg-white/5 border border-white/10 p-4 rounded text-sm focus:border-brand-accent outline-none transition-all">
                     </div>
-                    <button class="w-full bg-white text-black py-6 font-black uppercase text-[10px] tracking-[0.5em] hover:bg-brand-accent transition-all">
+                    <button type="submit" class="w-full bg-white text-black py-6 font-black uppercase text-[10px] tracking-[0.5em] hover:bg-brand-accent transition-all">
                         Initiate Private Consultation
                     </button>
                 </form>
